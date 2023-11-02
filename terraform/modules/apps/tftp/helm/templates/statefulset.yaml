@@ -1,0 +1,40 @@
+{{ $deployName := .Values.serviceName }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ $deployName }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $deployName }}
+  serviceName: {{ $deployName }}
+  template:
+    metadata:
+      labels:
+        app: {{ $deployName }}
+    spec:
+      containers:
+      - name: service
+        image: danrue/tftpd-hpa:5.2
+        resources:
+          requests:
+            cpu: 50m
+            memory: 128Mi
+        ports:
+        - containerPort: 69
+        - containerPort: 70
+        volumeMounts:
+        - mountPath: /srv/tftp
+          name: data
+      nodeSelector:
+        aex/integration: "true"
+
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 10Gi

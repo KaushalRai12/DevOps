@@ -1,0 +1,50 @@
+{{- $deployName := printf "%s-db" (include "deployName" .) }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ $deployName }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $deployName }}
+  serviceName: {{ $deployName }}
+  template:
+    metadata:
+      labels:
+        app: {{ $deployName }}
+    spec:
+      containers:
+        - name: db
+          image: postgres:13.3-alpine
+          resources:
+            requests:
+              cpu: 125m
+              memory: 128Mi
+          ports:
+            - containerPort: 5432
+          env:
+            - name: POSTGRES_DB
+              value: service
+            - name: POSTGRES_USER
+              value: postgres
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: requestd
+                  key: db-password
+          volumeMounts:
+            - mountPath: /var/lib/postgresql/data
+              name: data
+              subPath: postgres
+              readOnly: false
+      nodeSelector:
+        aex/devops: "true"
+  volumeClaimTemplates:
+    - metadata:
+        name: data
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 256Mi

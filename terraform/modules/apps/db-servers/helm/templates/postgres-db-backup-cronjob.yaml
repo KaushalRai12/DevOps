@@ -1,0 +1,37 @@
+{{- range $dbName := .Values.postgres.backups }}
+{{- $deployName := printf "%s-postgres-13-backups-%s" .Chart.Name $dbName }}
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ $deployName }}
+spec:
+  schedule: "15 0 * * *"
+  successfulJobsHistoryLimit: 1
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          imagePullSecrets:
+          - name: gitlab-docker-registry
+          containers:
+          - name: service
+            image: gitlab.automationexchange.co.za:4567/internal/devops/postgres-backup:2.2.7
+            env:
+            - name: POSTGRES_DB
+              value: $dbName
+            - name: POSTGRES_HOST
+              value: {{ printf "%s-postgres" $.Chart.Name }}
+            - name: S3_DIR
+              value: {{ printf "devops/%s/postgres/%s" .Chart.Name $dbName }}
+            - name: AWS_SECRET_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: aws-secret
+                  key: AKIAR6DEOFNAAJBX2SXJ
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: {{ .Chart.Name }}
+                  key: postgres-db-password
+          restartPolicy: Never
+{{- end }}

@@ -1,0 +1,5 @@
+instanceName: vumatel
+uuid:
+freeRadius:
+  authPort: 31597
+  acctPort: 31598

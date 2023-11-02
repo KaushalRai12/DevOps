@@ -1,0 +1,70 @@
+.docker-build-base:
+  stage: build-container
+  image: docker:19.03.12
+  services:
+  - docker:19.03.12-dind
+  tags:
+  - aws-k8s
+  script:
+  - docker info
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  - echo "Building and Pushing ${DOCKER_IMAGE:-$CI_REGISTRY_IMAGE}:${DOCKER_TAG:-$DEPLOY_ENV}..."
+  - docker build --build-arg nuget_password=${NUGET_PASSWORD} -t ${DOCKER_IMAGE:-$CI_REGISTRY_IMAGE}:${DOCKER_TAG:-$DEPLOY_ENV} .
+  - docker push ${DOCKER_IMAGE:-$CI_REGISTRY_IMAGE}:${DOCKER_TAG:-$DEPLOY_ENV}
+
+.docker-build-template:
+  extends:
+  - .docker-build-base
+  script:
+  - !reference [.docker-build-base, script]
+  - echo "Building and Pushing ${DOCKER_IMAGE:-$CI_REGISTRY_IMAGE}:${DOCKER_TAG:-$DEPLOY_ENV}..."
+  - docker build --build-arg nuget_password=${NUGET_PASSWORD} -t ${DOCKER_IMAGE:-$CI_REGISTRY_IMAGE}:${DOCKER_TAG:-$DEPLOY_ENV} .
+  - docker push ${DOCKER_IMAGE:-$CI_REGISTRY_IMAGE}:${DOCKER_TAG:-$DEPLOY_ENV}
+
+.docker-build-template-prod:
+  extends:
+  - .env-prod
+  - .docker-build-template
+  variables:
+    DOCKER_TAG: $CI_COMMIT_TAG
+
+
+.helm-deploy-template:
+  image: $CI_REGISTRY/internal/devops/helm-deployer:4.2.5
+  stage: deploy
+  dependencies: []
+  tags:
+  - aws-k8s
+  script:
+  - helm upgrade $APP_NAME-$DEPLOY_ENV ./helm --install --kube-context aex-dev --namespace aex-$DEPLOY_ENV --set nodePort=$NODE_PORT,env=$DEPLOY_ENV,imageTag=${DOCKER_TAG:-$DEPLOY_ENV},imagePullPolicy=${IMAGE_PULL_POLICY:-Always}
+
+.helm-deploy-template-ops:
+  extends:
+  - .helm-deploy-template
+  - .env-ops
+
+.helm-deploy-template-stage:
+  extends:
+  - .helm-deploy-template
+  - .env-stage
+
+.helm-deploy-template-preprod:
+  extends:
+  - .helm-deploy-template
+  - .env-preprod-manual
+  script:
+  - helm upgrade $APP_NAME-$DEPLOY_ENV ./helm --install --kube-context aex-dev --namespace aex-$DEPLOY_ENV --set nodePort=$NODE_PORT,env=$DEPLOY_ENV,imageTag=${DOCKER_TAG:-$CI_COMMIT_TAG},imagePullPolicy=${IMAGE_PULL_POLICY:-IfNotPresent}
+
+.helm-deploy-template-uat:
+  extends:
+  - .helm-deploy-template
+  - .env-uat-manual
+  script:
+  - helm upgrade $APP_NAME-$DEPLOY_ENV ./helm --install --kube-context aex-dev --namespace aex-$DEPLOY_ENV --set nodePort=$NODE_PORT,env=$DEPLOY_ENV,imageTag=${DOCKER_TAG:-$CI_COMMIT_TAG},imagePullPolicy=${IMAGE_PULL_POLICY:-IfNotPresent}
+
+.helm-deploy-template-prod:
+  extends:
+  - .helm-deploy-template
+  - .env-prod-manual
+  script:
+  - helm upgrade $APP_NAME-$DEPLOY_ENV ./helm -f helm/values-prod.yaml --install --kube-context aex-prod --namespace aex-$DEPLOY_ENV --set nodePort=$NODE_PORT,env=$DEPLOY_ENV,imageTag=$CI_COMMIT_TAG,imagePullPolicy=${IMAGE_PULL_POLICY:-IfNotPresent}

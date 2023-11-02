@@ -1,0 +1,50 @@
+# Remember to update the helm chart version after changing this file
+all:
+  vars:
+    master_user: ubuntu
+    can_become: no
+    user_expiry_days: 30
+    audit_retention: 30d
+    is_linux: true
+    logrotate_rapid:
+      - "/home/ubuntu/events/logs/*.log"
+      - "/home/ubuntu/fno-interface/logs/*.log"
+  children:
+    development:
+      vars:
+        user_expiry_days: 90
+        elastic_logs: "elastic-logs.dev.vumaex.net:9200"
+        kibana_logs: "logs.dev.vumaex.net:443"
+        cluster_env: dev
+      children:
+        development_stage:
+          hosts:
+            stage.nms.dev.vumaex.blue:
+            stage.api.dev.vumaex.blue:
+            stage.portal.dev.vumaex.blue:
+              is_linux: false
+      hosts:
+        gitlab.vumaex.blue:
+    vumatel:
+      vars:
+        cluster_env: prod
+        user_expiry_days: 30
+        elastic_logs: "elastic-logs.vumatel.vumaex.net:9200"
+        kibana_logs: "logs.vumatel.vumaex.net:443"
+        audit_retention: 90d
+        logrotate_rapid:
+          - "/home/ubuntu/events/logs/*.log"
+          - "/home/ubuntu/events-stage/logs/*.log"
+          - "/home/ubuntu/fno-interface/logs/*.log"
+          - "/home/ubuntu/fno-interface-stage/logs/*.log"
+      hosts:
+        api.vumatel.vumaex.blue:
+        workers.vumatel.vumaex.blue:
+        nms.vumatel.vumaex.blue:
+        nms-workers.vumatel.vumaex.blue:
+        portal.vumatel.vumaex.blue:
+          is_linux: false
+        freerad-acct-1.vumatel.vumaex.blue:
+        freerad-acct-1-b.vumatel.vumaex.blue:
+        freerad-auth.vumatel.vumaex.blue:
+        freerad-auth-b.vumatel.vumaex.blue:

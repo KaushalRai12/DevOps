@@ -1,0 +1,14 @@
+[profile vumatel-operations]
+aws_access_key_id = AKIA4TSAF5SJHWDK4BUE
+aws_secret_access_key = ${aws_secret_vumatel_operations}
+region=af-south-1
+
+[profile vumatel-prod]
+aws_access_key_id = AKIA3ITRLR6RPUOA44G3
+aws_secret_access_key = ${aws_secret_vumatel}
+region=af-south-1
+
+[profile vumatel-preprod]
+aws_access_key_id = AKIAQSHCHF5B4LQMBFGI
+aws_secret_access_key = ${aws_secret_vumatel_preprod}
+region=af-south-1

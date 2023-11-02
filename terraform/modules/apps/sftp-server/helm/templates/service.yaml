@@ -1,0 +1,15 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: sftp
+  namespace: sftp
+  labels:
+    environment: production
+spec:
+  type: "LoadBalancer"
+  ports:
+  - name: "ssh"
+    port: 22
+    targetPort: 22
+  selector:
+    app: sftp

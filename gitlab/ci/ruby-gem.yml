@@ -1,0 +1,11 @@
+deploy:
+  image: $CI_REGISTRY/internal/devops/ruby-ci-test:2.7.1.2
+  stage: deploy
+  tags:
+    - aws-k8s
+  rules:
+    - if: '$CI_COMMIT_TAG != null'
+      when: always
+  script:
+    - gem build -o ${GEM_NAME}-${CI_COMMIT_TAG:1}.gem ${GEM_NAME}
+    - gem nexus --url https://nexus.vumaex.net/repository/gems-aex/ --credential gitlab:$NUGET_PASSWORD ${GEM_NAME}-${CI_COMMIT_TAG:1}.gem

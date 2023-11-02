@@ -1,0 +1,1 @@
+0 22 * * * /bin/bash -l /root/expire-users.sh >> /var/log/cron.log 2>&1

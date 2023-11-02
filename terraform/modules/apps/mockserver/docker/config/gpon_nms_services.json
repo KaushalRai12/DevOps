@@ -1,0 +1,220 @@
+[
+  {
+    "id": "gpon_service_no_service_linked_to_reference",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)900.{5}?/services/\\d+$",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "identifier": "1-8-15-3389",
+              "type": "DynOmciCpeConnection",
+              "reference": "D5E791ED23C84B34A01B2A7BA8205DE2",
+              "vlan": 3820,
+              "slan": 3820,
+              "port": 1,
+              "plugged_in": "1",
+              "serv_profile": "@oa-isp-vlan-in-serv-qinq-al",
+              "line_profile": "@VT-CORE-50-50-V2022",
+              "up_speed": "50",
+              "down_speed": "50",
+              "raw_up_speed": 50,
+              "raw_down_speed": 50,
+              "mac_address": "D4-3D-F3-77-96-13",
+              "mac_status": "success",
+              "vlans_success": true,
+              "olt_id": 2666101,
+              "olt": "NTWK-Alrode",
+              "name": "CXNK00EB09DC-1",
+              "added": "2023-06-15T11:06:29+02:00",
+              "olt_port": "1-8-15",
+              "ont_id": "3389",
+              "network_id": 1233,
+              "operator_id": 1
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "gpon_service",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK).{8}/services/\\d*$",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "identifier": "1-8-15-3389",
+              "type": "DynOmciCpeConnection",
+              "reference": "DF48DD3F0E54424FAEF5CDC609DEAF71",
+              "vlan": 3820,
+              "slan": 3820,
+              "port": 1,
+              "plugged_in": "1",
+              "serv_profile": "@oa-isp-vlan-in-serv-qinq-al",
+              "line_profile": "@VT-CORE-50-50-V2022",
+              "up_speed": "200",
+              "down_speed": "1000",
+              "raw_up_speed": 200,
+              "raw_down_speed": 1000,
+              "mac_address": "D4-3D-F3-77-96-13",
+              "mac_status": "success",
+              "vlans_success": true,
+              "olt_id": 2666101,
+              "olt": "NTWK-Alrode",
+              "name": "CXNK00EB09DC-1",
+              "added": "2023-06-15T11:06:29+02:00",
+              "olt_port": "1-8-15",
+              "ont_id": "3389",
+              "network_id": 1233,
+              "operator_id": 1
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "gpon_service_refresh_no_service_linked_to_reference",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)900.{5}?/services/\\d+$",
+      "queryStringParameters": {
+        "refresh": [
+          "true"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "identifier": "1-8-15-3389",
+              "type": "DynOmciCpeConnection",
+              "reference": "D5E791ED23C84B34A01B2A7BA8205DE2",
+              "vlan": 3820,
+              "slan": 3820,
+              "port": 1,
+              "plugged_in": "1",
+              "serv_profile": "@oa-isp-vlan-in-serv-qinq-al",
+              "line_profile": "@VT-CORE-50-50-V2022",
+              "up_speed": "50",
+              "down_speed": "50",
+              "raw_up_speed": 50,
+              "raw_down_speed": 50,
+              "mac_address": "D4-3D-F3-77-96-13",
+              "mac_status": "success",
+              "vlans_success": true,
+              "olt_id": 2666101,
+              "olt": "NTWK-Alrode",
+              "name": "CXNK00EB09DC-1",
+              "added": "2023-06-15T11:06:29+02:00",
+              "olt_port": "1-8-15",
+              "ont_id": "3389",
+              "network_id": 1233,
+              "operator_id": 1
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": 1
+        }
+      }
+    }
+  },
+  {
+    "id": "gpon_service_refresh",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK).{8}/services/\\d+$",
+      "queryStringParameters": {
+        "refresh": [
+          "true"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "identifier": "1-8-15-3389",
+              "type": "DynOmciCpeConnection",
+              "reference": "DF48DD3F0E54424FAEF5CDC609DEAF71",
+              "vlan": 3820,
+              "slan": 3820,
+              "port": 1,
+              "plugged_in": "1",
+              "serv_profile": "@oa-isp-vlan-in-serv-qinq-al",
+              "line_profile": "@VT-CORE-50-50-V2022",
+              "up_speed": "50",
+              "down_speed": "50",
+              "raw_up_speed": 50,
+              "raw_down_speed": 50,
+              "mac_address": "D4-3D-F3-77-96-13",
+              "mac_status": "success",
+              "vlans_success": true,
+              "olt_id": 2666101,
+              "olt": "NTWK-Alrode",
+              "name": "CXNK00EB09DC-1",
+              "added": "2023-06-15T11:06:29+02:00",
+              "olt_port": "1-8-15",
+              "ont_id": "3389",
+              "network_id": 1233,
+              "operator_id": 1
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": 1
+        }
+      }
+    }
+  }
+]

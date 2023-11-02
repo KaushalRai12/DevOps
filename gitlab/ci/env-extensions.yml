@@ -1,0 +1,77 @@
+.env-stage:
+  variables:
+    DEPLOY_ENV: stage
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^env(?:-\w*)?-stage(?:-\w*)?-20\d{6}.*$/i'
+      when: always
+
+.env-stage-manual:
+  extends: .env-stage
+  rules:
+  - if: '$CI_COMMIT_TAG =~ /^env(?:-\w*)?-stage(?:-\w*)?-20\d{6}.*$/i'
+    when: manual
+
+.env-ops:
+  variables:
+    DEPLOY_ENV: operations
+  rules:
+  - if: '$CI_COMMIT_TAG =~ /^env(?:-\w*)?-ops(?:-\w*)?-20\d{6}.*$/i'
+    when: always
+
+.env-preprod:
+  variables:
+    DEPLOY_ENV: preprod
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^env(?:-\w*)?-(preprod|release-target)(?:-\w*)?-20\d{6}.*$/i'
+      when: always
+
+.env-preprod-manual:
+  extends: .env-preprod
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^env(?:-\w*)?-(preprod|release-target)(?:-\w*)?-20\d{6}.*$/i'
+      when: manual
+
+.env-uat:
+  variables:
+    DEPLOY_ENV: uat
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^env(?:-\w*)?-(uat|release-target)(?:-\w*)?-20\d{6}.*$/i'
+      when: always
+
+.env-uat-manual:
+  extends: .env-uat
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^env(?:-\w*)?-(uat|release-target)(?:-\w*)?-20\d{6}.*$/i'
+      when: manual
+
+.env-any:
+  variables:
+    DEPLOY_ENV: stage
+  rules:
+  - if: '$CI_COMMIT_TAG =~ /^env-[\w-]+-20\d{6}\..*$/ || $CI_COMMIT_TAG =~ /^v20\d{6}\..*$/i'
+    when: always
+
+.env-any-not-prod:
+  variables:
+    DEPLOY_ENV: stage
+  rules:
+  - if: '$CI_COMMIT_TAG =~ /^env-[\w-]+-20\d{6}\..*$/i'
+    when: always
+
+.env-prod:
+  variables:
+    DEPLOY_ENV: prod
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^v20\d{6}\..*$/i'
+      when: always
+
+.env-prod-manual:
+  extends: .env-prod
+  rules:
+    - if: '$CI_COMMIT_TAG =~ /^v20\d{6}\..*$/i'
+      when: manual
+
+.env-library:
+  rules:
+  - if: '$CI_COMMIT_TAG =~ /^\d{1,2}\.\d{1,2}\.\d{1,2}(?:\.\d{1,4})?$/'
+    when: always

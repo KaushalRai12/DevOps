@@ -1,0 +1,31 @@
+---
+# All default Ambassador values are available here: https://github.com/datawire/ambassador-chart
+# To show all default values in helm, use this command: helm show values ambassador --repo https://www.getambassador.io  
+
+replicaCount: 1
+
+service:
+  type: NodePort
+
+  # Note that target http ports need to match your ambassador configurations service_port
+  # https://www.getambassador.io/reference/modules/#the-ambassador-module
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+      # protocol: TCP
+      nodePort: 31615
+      # hostPort: 80
+    - name: https
+      port: 443
+      targetPort: 8443
+      # protocol: TCP
+      nodePort: 31616
+      # hostPort: 443
+    # TCPMapping_Port
+      # port: 2222
+      # targetPort: 2222
+      # protocol: TCP
+      # nodePort: 30222
+
+

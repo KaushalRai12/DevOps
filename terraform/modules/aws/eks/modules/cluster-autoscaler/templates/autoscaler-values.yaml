@@ -1,0 +1,19 @@
+cloudProvider: aws
+autoDiscovery:
+  clusterName: ${cluster_name}
+  tags:
+  - k8s.io/cluster-autoscaler/enabled
+  - k8s.io/cluster-autoscaler/${cluster_name}
+rbac:
+  serviceAccount:
+    name: ${service_account_name}
+    annotations:
+      eks.amazonaws.com/role-arn: ${role_arn}
+awsRegion: ${aws_region}
+extraArgs:
+  skip-nodes-with-system-pods: false
+  skip-nodes-with-local-storage: false
+  balance-similar-node-groups:
+#extraEnv:
+#  skipNodesWithLocalStorage: "false"
+#  skipNodesWithSystemPods: "false"

@@ -1,0 +1,4 @@
+---
+- name: Rotate LetsEncrypt Certificate
+  shell: |
+   letsencrypt --renew-by-default certonly -n --webroot -w /var/www/letsencrypt -m {{ letsencrypt_email }} --agree-tos -d {{ domain_name }} --preferred-chain "ISRG Root X1" && service nginx reload  

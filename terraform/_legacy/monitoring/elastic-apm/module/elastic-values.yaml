@@ -1,0 +1,55 @@
+fullnameOverride: elastic-metrics
+nodeGroup: "single"
+replicas: 1
+minimumMasterNodes: 1
+
+esJavaOpts: "-Xmx512m -Xms512m"
+
+resources:
+  requests:
+    cpu: 0.5
+    memory: 1Gi
+  limits:
+    cpu: 2
+    memory: 4Gi
+
+persistence:
+  enabled: true
+
+volumeClaimTemplate:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+
+clusterHealthCheckParams: "wait_for_status=yellow&timeout=10s"
+
+service:
+  type: NodePort
+  nodePort: 31565
+
+nodeAffinity:
+  preferredDuringSchedulingIgnoredDuringExecution:
+  - weight: 1
+    preference:
+      matchExpressions:
+      - key: aex/has-native
+        operator: DoesNotExist
+
+lifecycle:
+  postStart:
+    exec:
+      command:
+      - bash
+      - -c
+      - |
+        #!/bin/bash
+        # Add a template to adjust number of shards/replicas
+        TEMPLATE_NAME=apm_indexes
+        INDEX_PATTERN="apm-*"
+        SHARD_COUNT=2
+        REPLICA_COUNT=0
+        ES_URL=http://localhost:9200
+        while [[ "$(curl -s -o /dev/null -w '%{http_code}\n' $ES_URL)" != "200" ]]; do sleep 1; done
+        curl -XPUT "$ES_URL/_template/$TEMPLATE_NAME" -H 'Content-Type: application/json' -d'{"index_patterns":['\""$INDEX_PATTERN"\"'],"settings":{"number_of_shards":'$SHARD_COUNT',"number_of_replicas":'$REPLICA_COUNT'}}'

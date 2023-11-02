@@ -1,0 +1,3 @@
+---
+domain_name: "{{ hostname }}"
+letsencrypt_email: devops@aex.co.za

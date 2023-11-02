@@ -1,0 +1,43 @@
+version: '3'
+services:
+  genieacs:
+    image: drumsergio/genieacs:1.2.8
+    restart: always
+    #network_mode: host
+    ports:
+      - 7547:7547
+      - 7557:7557
+      - 7567:7567
+      - 3000:3000
+    depends_on:
+      - nginx
+      - mongodb
+    environment:
+      GENIEACS_MONGODB_CONNECTION_URL: "mongodb://genieacs:1111111111111111@mongodb/genieacs?authSource=admin"
+      GENIEACS_UI_JWT_SECRET: 11111111111111111
+      GENIEACS_DEBUG_FILE: /var/log/genieacs/genieacs-debug.yaml
+
+      GENIEACS_CWMP_ACCESS_LOG_FILE: /var/log/genieacs/genieacs-cwmp-access.log
+      GENIEACS_NBI_ACCESS_LOG_FILE: /var/log/genieacs/genieacs-nbi-access.log
+      GENIEACS_FS_ACCESS_LOG_FILE: /var/log/genieacs/genieacs-fs-access.log
+      GENIEACS_UI_ACCESS_LOG_FILE: /var/log/genieacs/genieacs-ui-access.log
+
+    #  GENIEACS_CWMP_PORT: 80
+    #  GENIEACS_CWMP_INTERFACE: 0.0.0.0
+  nginx:
+    image: genieacs-nginx
+    ports:
+      - 80:7547
+    build:
+      context: ./
+      dockerfile: Dockerfile.nginx
+  mongodb:
+    image: mongo
+    restart: always
+    #network_mode: host
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: genieacs
+      MONGO_INITDB_ROOT_PASSWORD: 3Vvrg3ty2F2dhbA4Rp3w
+      MONGO_INITDB_DATABASE: genieacs
+    volumes:
+      - ./data:/data/db

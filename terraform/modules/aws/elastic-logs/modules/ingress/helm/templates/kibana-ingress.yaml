@@ -1,0 +1,34 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/scheme: {{ ternary "internal" "internet-facing" .Values.isInternal }}
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/load-balancer-name: {{ .Values.loadBalancerName }}
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.certificateArn }}
+    alb.ingress.kubernetes.io/ssl-policy: "ELBSecurityPolicy-FS-1-2-Res-2020-10"
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: "443"
+    {{- if not .Values.isInternal }}
+    alb.ingress.kubernetes.io/auth-type: cognito
+    alb.ingress.kubernetes.io/auth-scope: openid
+    alb.ingress.kubernetes.io/auth-session-timeout: '86400'
+    alb.ingress.kubernetes.io/auth-session-cookie: AWSELBAuthSessionCookie
+    alb.ingress.kubernetes.io/auth-on-unauthenticated-request: authenticate
+    alb.ingress.kubernetes.io/auth-idp-cognito: '{"UserPoolArn": "{{ .Values.userPool.arn }}","UserPoolClientId":"{{ .Values.userPool.clientId }}","UserPoolDomain":"{{ .Values.userPool.domain }}"}'
+    {{- end }}
+  name: {{ .Values.name }}
+spec:
+  rules:
+  - host: {{ .Values.domainName }}
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ .Values.name }}
+            port:
+              number: 5601
+

@@ -1,0 +1,107 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "deployName" . }}-config
+data:
+  settings.yml: |
+    ditty:
+      title: RequestD
+      home_page: '/calls/dashboard'
+      brand-icon: 'fa-mountain'
+    logger:
+      loggers:
+      - name: files
+        class: Logger
+        level: DEBUG
+        options: logs/<%= ENV['APP_ENV'] %>.log
+    api_logger:
+      store: Elasticsearch # Can also be RethinkDB
+    authentication:
+      microsoft_graph: # https://docs.microsoft.com/en-us/graph/tutorials/ruby?tutorial-step=1
+        enabled: true
+        login_prompt: Log in with Office 365
+        register_prompt: Register with Office 365
+        icon: windows
+        arguments:
+        - <%= ENV['OFFICE365_CLIENT_ID'] %>
+        - <%= ENV['OFFICE365_CLIENT_SECRET'] %>
+        - client_options:
+            token_url: fc488917-6d09-4a8c-a741-1cca1bb2333d/oauth2/v2.0/token
+            authorize_url: fc488917-6d09-4a8c-a741-1cca1bb2333d/oauth2/v2.0/authorize
+    elasticsearch:
+      search_type: query_string # Can be simple_query_string
+      search_options:
+        # See the optoins for query_string / simple_query_string
+        default_operator: AND
+        quote_field_suffix: '.exact'
+        fields:
+        - request.resource
+    development:
+      logger:
+        loggers:
+        - name: default
+          class: Logger
+          options: $stdout
+    production:
+      logger:
+        loggers:
+        - name: default
+          class: Logger
+          options: $stdout
+          level: WARN
+    requestd:
+      chart_provider: chartjs
+      intervals:
+      - value: 1m
+        name: 1 Minute
+      - value: 5m
+        name: 5 Minutes
+      - value: 15m
+        name: 15 Minutes
+      - value: divider
+      - value: 1h
+        name: 1 Hour
+      - value: 3h
+        name: 3 Hours
+      - value: 6h
+        name: 6 Hours
+      - value: divider
+      - value: 1d
+        name: 1 Day
+      - value: 2d
+        name: 2 Days
+      - value: 1w
+        name: 1 Week
+      timespans:
+      - value: 1h
+        name: 1 Hour
+        interval: 1m
+      - value: 4h
+        name: 4 Hours
+        interval: 5m
+      - value: 1d
+        name: 1 Day
+        interval: 15m
+      - value: 4d
+        name: 4 Days
+        interval: 1h
+      - value: divider
+      - value: 1w/d
+        name: 1 Week
+        interval: 3h
+      - value: 2w/d
+        name: 2 Weeks
+        interval: 6h
+      - value: 1M/d
+        name: 1 Month
+        interval: 12h
+      - value: divider
+      - value: 3M/d
+        name: 3 Months
+        interval: 1d
+      - value: 6M/d
+        name: 6 Months
+        interval: 2d
+      - value: 1y/d
+        name: 1 Year
+        interval: 1w

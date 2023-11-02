@@ -1,0 +1,20 @@
+[
+  {
+    "id": "gpon_device_usage",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK).{8}/device-usage$",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": ["application/json"],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {"count": 20,"sum_down": 1001003952,"min_down": 20,"max_down": 1001002022,"sum_up": 1001003182,"min_up": 10,"max_up": 1001002022}
+      }
+    }
+  }
+]

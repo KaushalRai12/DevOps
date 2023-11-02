@@ -1,0 +1,15 @@
+# Firewall
+- name: Firewall Rule - Allow SNMP on UDP
+  ufw: rule=allow port=161 proto=udp
+  tags: [snmpd]
+
+# Package
+- name: Install SNMPd
+  apt: pkg=snmpd state=latest
+  tags: [snmpd]
+
+# Config
+- name: Configure SNMP
+  template: src=snmpd.conf.j2 dest=/etc/snmp/snmpd.conf mode=0600 owner=root group=root
+  notify: Restart SNMP
+  tags: [snmpd]

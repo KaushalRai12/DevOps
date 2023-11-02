@@ -1,0 +1,53 @@
+build-stage:
+  extends:
+  - .build-angular
+  - .env-stage
+  script:
+  - npm run build:stage
+
+build-stage-container:
+  extends:
+  - .docker-build-template
+  - .env-stage
+
+build-preprod:
+  extends:
+  - .build-angular
+  - .env-preprod
+  script:
+  - npm run build:preprod
+
+build-preprod-container:
+  extends:
+  - .docker-build-template
+  - .env-preprod
+  variables:
+    DOCKER_TAG: $CI_COMMIT_TAG
+
+build-prod:
+  extends:
+  - .build-angular
+  - .env-prod
+  script:
+  - npm run build:prod
+
+build-prod-container:
+  extends:
+  - .docker-build-template
+  - .env-prod
+  variables:
+    DOCKER_TAG: $CI_COMMIT_TAG
+
+build-uat:
+  extends:
+  - .build-angular
+  - .env-uat
+  script:
+  - npm run build:uat
+
+build-uat-container:
+  extends:
+  - .docker-build-template
+  - .env-uat
+  variables:
+    DOCKER_TAG: $CI_COMMIT_TAG    

@@ -1,0 +1,8 @@
+apiVersion: v2
+name: db-servers
+type: application
+version: 1.0.4
+appVersion: 1.0.0
+maintainers:
+  - name: Automation Exchange
+    url: http://www.automationexchange.co.za/

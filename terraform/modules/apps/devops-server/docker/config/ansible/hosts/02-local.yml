@@ -1,0 +1,15 @@
+plugin: constructed
+strict: False
+compose:
+  is_windows: "not is_linux"
+  is_stage: "'stage.' in inventory_hostname"
+  is_preprod: "'preprod.' in inventory_hostname"
+groups:
+  os_windows: is_windows
+  os_linux: is_linux
+  env_stage: is_stage
+  env_preprod: is_preprod
+keyed_groups:
+- key: cluster_env
+  separator: _
+  prefix: env

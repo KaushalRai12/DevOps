@@ -1,0 +1,13 @@
+{{- $deployName := printf "%s-db" ( include "deployName" . ) }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $deployName }}
+spec:
+  ports:
+    - protocol: TCP
+      port: 5432
+      targetPort: 5432
+  type: ClusterIP
+  selector:
+    app: {{ $deployName }}

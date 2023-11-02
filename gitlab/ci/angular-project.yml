@@ -1,0 +1,8 @@
+include:
+  - '/gitlab/ci/node-sonar.yml'
+  - '/gitlab/ci/angular-lint.yml'
+  - '/gitlab/ci/angular-demo.yml'
+  - '/gitlab/ci/env-extensions.yml'
+  - '/gitlab/ci/angular-extensions.yml'
+  - '/gitlab/ci/global-extensions.yml'
+  - '/gitlab/ci/angular-build.yml'

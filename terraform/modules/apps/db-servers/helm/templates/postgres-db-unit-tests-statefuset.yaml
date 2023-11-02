@@ -1,0 +1,62 @@
+{{- if .Values.deployUnitTestServer }}
+{{- $deployName := printf "%s-postgres-unit-tests-13" .Chart.Name }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ $deployName }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ $deployName }}
+  serviceName: {{ $deployName }}
+  template:
+    metadata:
+      labels:
+        app: {{ $deployName }}
+    spec:
+      containers:
+      - name: db
+        image: postgres:13.3-alpine
+        resources:
+          requests:
+            cpu: 50m
+            memory: 128Mi
+        ports:
+        - containerPort: 5432
+        env:
+        - name: POSTGRES_DB
+          value: service
+        - name: POSTGRES_USER
+          value: postgres
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Chart.Name }}
+              key: postgres-db-password
+        volumeMounts:
+        - mountPath: /var/lib/postgresql/data
+          name: data
+          readOnly: false
+          {{- if .Values.isCloudDeploy }}
+          subPath: postgres
+          {{- end }}
+      nodeSelector:
+        aex/devops: "true"
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: aex/has-native
+                operator: DoesNotExist
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes:
+      - {{ .Values.isCloudDeploy | ternary "ReadWriteOnce" "ReadWriteMany" }}
+      resources:
+        requests:
+          storage: "256Mi"
+{{- end }}

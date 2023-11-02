@@ -1,0 +1,7 @@
+service:
+  type: NodePort
+  nodePort: 31637
+
+serviceMonitor:
+  enabled: true
+  namespace: aex-devops

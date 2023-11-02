@@ -1,0 +1,21 @@
+extraArgs:
+  - "--token-ttl=43200"
+
+affinity:
+  nodeAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 1
+      preference:
+        matchExpressions:
+        - key: aex/has-native
+          operator: DoesNotExist
+
+metrics-server:
+  enabled: true
+  args:
+    - "--v=2"
+    - "--kubelet-insecure-tls"
+    - "--kubelet-preferred-address-types=InternalIP"
+
+metricsScraper:
+  enabled: true

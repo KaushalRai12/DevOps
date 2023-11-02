@@ -1,0 +1,9 @@
+fullnameOverride: requestd-memcached${suffix}
+
+metrics: # enable this if we ever want to monitor requestd memcached with prometheus
+  enabled: false
+  serviceMonitor:
+    enabled: false
+
+nodeSelector:
+  aex/devops: "true"

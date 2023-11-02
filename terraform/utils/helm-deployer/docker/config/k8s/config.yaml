@@ -1,0 +1,93 @@
+apiVersion: v1
+clusters:
+- cluster:
+    certificate-authority: ca-vumatel-operations.crt
+    server: https://2233BC38429C6A3CEAC3F2725524677C.gr7.af-south-1.eks.amazonaws.com
+  name: vumatel-operations
+- cluster:
+    certificate-authority: ca-vumatel-prod.crt
+    server: https://A5490E34424CFE90AECAC3049CDD1F51.sk1.af-south-1.eks.amazonaws.com
+  name: vumatel-prod
+- cluster:
+    certificate-authority: ca-vumatel-preprod-dev.crt
+    server: https://03C516C5997875DED63CBD43A5B1EBDA.yl4.af-south-1.eks.amazonaws.com
+  name: vumatel-preprod-dev
+
+contexts:
+- context:
+    cluster: vumatel-operations
+    namespace: aex-devops
+    user: vumatel-operations
+  name: vumatel-operations
+- context:
+    cluster: vumatel-prod
+    namespace: aex-prod
+    user: vumatel-prod
+  name: vumatel-prod
+- context:
+    cluster: vumatel-preprod-dev
+    namespace: aex-preprod
+    user: vumatel-preprod-dev
+  name: vumatel-preprod-dev
+
+current-context: aex-dev
+kind: Config
+preferences: { }
+users:
+- name: ci-robot-prod
+  namespace: aex-devops
+  user:
+    token: ${user_token_ci_robot_prod}
+- name: ci-robot
+  namespace: aex-devops
+  user:
+    token: ${user_token_ci_robot}
+- name: vumatel-operations
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - af-south-1
+      - eks
+      - get-token
+      - --cluster-name
+      - operations
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: vumatel-operations
+      interactiveMode: IfAvailable
+      provideClusterInfo: false
+- name: vumatel-prod
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - af-south-1
+      - eks
+      - get-token
+      - --cluster-name
+      - vumatel_prod
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: vumatel-prod
+      provideClusterInfo: false
+- name: vumatel-preprod-dev
+  user:
+    exec:
+      apiVersion: client.authentication.k8s.io/v1alpha1
+      args:
+      - --region
+      - af-south-1
+      - eks
+      - get-token
+      - --cluster-name
+      - preprod_dev
+      command: aws
+      env:
+      - name: AWS_PROFILE
+        value: vumatel-preprod
+      provideClusterInfo: false

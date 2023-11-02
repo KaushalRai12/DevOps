@@ -1,0 +1,27 @@
+test:
+  image: $CI_REGISTRY/internal/devops/ruby-ci-test:2.7.1.1
+  stage: test
+  cache:
+    paths:
+      - vendor
+  artifacts:
+    paths:
+      - vendor
+      - coverage
+      - rubocop.json
+  before_script:
+    - mkdir -p ~/.ssh
+    - echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config
+    - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+    - chmod 600 ~/.ssh/id_rsa
+    - eval $(ssh-agent -s)
+    - ssh-add
+    - bundle config set path 'vendor/bundle'
+    - bundle config set nexus.vumaex.net gitlab:$NUGET_PASSWORD
+    - bundle install
+    - bundle clean
+  tags:
+    - aws-k8s
+  rules:
+    - if: '$CI_MERGE_REQUEST_ID != null || $CI_COMMIT_BRANCH =~ "/^(master|dev)$/" || $CI_COMMIT_MESSAGE =~ /.*SONAR!.*/'
+      when: always

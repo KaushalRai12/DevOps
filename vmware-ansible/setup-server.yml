@@ -1,0 +1,19 @@
+- hosts: speedtest_servers
+  vars_files:
+    - "./vault/passwd.yml"  
+  vars:
+    ansible_user: development
+    ansible_ssh_private_key_file: ~/.ssh/speedtest_root_rsa   
+  roles:
+   - role: ./roles/server-init
+     become: true
+
+- hosts: speedtest_servers
+  vars:
+    ansible_user: vumateldevops
+    ansible_ssh_private_key_file: ~/.ssh/devops   
+  roles:
+    - role: ./roles/deploy-speedtest 
+      become: false
+    - role: ./roles/letsencrypt
+      become: true         

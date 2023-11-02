@@ -1,0 +1,4 @@
+suffix: ${suffix}
+elasticUrl: ${elastic_url}
+imageTag: ${image_tag}
+gitlabDomain: ${gitlab_domain}

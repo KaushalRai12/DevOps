@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "deployName" . }}
+data:
+  APP_ENV: production
+  DB_DEBUG: "0"
+  ELASTICSEARCH_VERSION: "7"
+  ELASTICSEARCH_HOST: {{ .Values.elasticUrl }}
+  ELASTICSEARCH_PORT: "9200"
+  ELASTICSEARCH_SCHEME: http
+  RUBYOPT: -W0
+  MEMCACHED_URL: requestd-memcached{{ coalesce .Values.suffix "" }}:11211
+  OFFICE365_CLIENT_ID: 0a2a4b9b-9fbb-438f-9f3d-e242fca15b84
+  TZ: "Africa/Johannesburg"
+  DITTY_REGISTERING_DISABLED: "0"

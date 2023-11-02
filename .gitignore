@@ -1,0 +1,9 @@
+.idea
+*.iml
+
+**/.terraform
+*.tfstate
+*.tfstate.*
+
+**/charts/*.tgz
+*.history

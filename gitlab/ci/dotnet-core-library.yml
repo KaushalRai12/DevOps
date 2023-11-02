@@ -1,0 +1,6 @@
+include:
+- '/gitlab/ci/env-extensions.yml'
+- '/gitlab/ci/global-extensions.yml'
+- '/gitlab/ci/dotnet-core-extensions.yml'
+- '/gitlab/ci/dotnet-core-sonar.yml'
+- '/gitlab/ci/dotnet-core-deploy-library.yml'

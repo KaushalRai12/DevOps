@@ -1,0 +1,136 @@
+---
+- name: Install aptitude
+  apt:
+    name: aptitude
+    state: latest
+    update_cache: true
+
+- name: Setup passwordless sudo
+  lineinfile:
+    path: /etc/sudoers
+    state: present
+    regexp: '^%sudo'
+    line: '%sudo ALL=(ALL) NOPASSWD: ALL'
+    validate: '/usr/sbin/visudo -cf %s'
+
+- name: Create new sudo "{{ created_username}}" user       
+  user:
+    name: "{{ created_username}}"
+    state: present
+    groups: sudo 
+    append: true
+    create_home: true
+
+- name: Set authorized key for "{{ created_username }}" user
+  ansible.posix.authorized_key:
+    user: "{{ created_username }}"
+    state: present
+    key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/devops.pub') }}"
+
+- name: Disable password authentication for root
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    state: present
+    regexp: '^#?PermitRootLogin'
+    line: 'PermitRootLogin prohibit-password'
+
+- name: Install base packages
+  apt:
+    pkg: 
+      - curl
+      - vim
+      - git
+      - ufw
+      - net-tools
+      - apt-transport-https
+      - ca-certificates      
+      - software-properties-common
+      - python3-pip
+      - virtualenv
+      - cron
+      - iputils-ping
+      - dnsutils
+      - traceroute
+    state: latest
+    update_cache: true
+      
+- name: UFW - Allow SSH connections
+  community.general.ufw:
+    rule: allow
+    name: OpenSSH
+
+- name: UFW - Allow all access to tcp port 80
+  community.general.ufw:
+    rule: allow
+    port: '80'
+    proto: tcp  
+
+- name: UFW - Allow all access to tcp port 443
+  community.general.ufw:
+    rule: allow
+    port: '443'
+    proto: tcp    
+
+- name: UFW - Allow all access to tcp port 8080
+  community.general.ufw:
+    rule: allow
+    port: '8080'
+    proto: tcp 
+
+- name: UFW - Enable and deny by default
+  community.general.ufw:
+    state: enabled
+    default: deny    
+
+- name: Add Docker GPG apt Key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu focal stable
+    state: present
+
+- name: Install docker-ce
+  apt:
+    name: docker-ce
+    state: latest
+    update_cache: true
+
+- name: Install Docker Module for Python
+  pip:
+    name: docker    
+
+- name: Add "{{ created_username }}" user to "docker" group
+  user:
+    name: "{{ created_username }}"
+    groups: "docker"
+    append: yes
+  tags:
+    - docker
+
+- name: Install docker-compose
+  remote_user: "{{ created_username }}"
+  get_url:
+    url : https://github.com/docker/compose/releases/download/1.29.2/docker-compose-Linux-x86_64
+    dest: /usr/local/bin/docker-compose
+    mode: 750 
+
+- name: Install docker-compose python package
+  become_user: "{{ created_username }}"
+  ansible.builtin.pip:
+    name: docker-compose    
+
+- name: Give docker-compose to docker group
+  command: chgrp docker /usr/local/bin/docker-compose
+  changed_when: false
+
+- name: Log into gitlab registry and force re-authorization
+  become_user: "{{ created_username }}"
+  docker_login:
+    registry: "{{ registry_url }}"
+    username: "{{ registry_username }}"
+    password: "{{ registry_password }}"
+    reauthorize: yes 
+

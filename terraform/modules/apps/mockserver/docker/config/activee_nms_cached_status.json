@@ -1,0 +1,1020 @@
+[
+  {
+    "id": "active_e_all_good_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-AG-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [],
+              "alarms": [],
+              "oper_status": "Up",
+              "admin_status": "Up",
+              "status": "Up",
+              "pop_status": "Up",
+              "location_ref": null,
+              "pon_port": null,
+              "model": null,
+              "object_status": "Deliverable",
+              "lease_time": "2099-06-06T15:44:00+02:00",
+              "cpe_model": null,
+              "cpe_port_speed": 1000,
+              "cpe_plugged_into": 1,
+              "fibre_port_speed": 1000,
+              "plugged_in": "Yes",
+              "since": null,
+              "last_uptime": "2023-06-03T18:14:37+02:00",
+              "last_downtime": "2023-06-03T16:14:17+02:00",
+              "ont_distance": 20000.0,
+              "rx_light_level": -12.47,
+              "rx_low": -29.2,
+              "rx_high": -1.0,
+              "rx_status": "Normal",
+              "sfp_light_level": -6.0,
+              "sfp_low": -30.0,
+              "sfp_high": -1.0,
+              "sfp_status": "Normal",
+              "tx_light_level": -6.0,
+              "tx_low": -11.0,
+              "tx_high": -1.0,
+              "tx_status": "Normal",
+              "sfp_rx_light_level": -8.0,
+              "sfp_rx_low": -30.0,
+              "sfp_rx_high": -1.0,
+              "sfp_rx_status": "Normal",
+              "name": "5",
+              "olt": "Mulbarton",
+              "olt_name": "Mulbarton",
+              "type": "object",
+              "reference": "VT-MBT-OB-0704",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-06-05T22:00:51+02:00",
+              "switch": "mulbarton-a50"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "active_e_lease_expired_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-LE-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [],
+              "alarms": [],
+              "oper_status": "Up",
+              "admin_status": "Up",
+              "status": "Up",
+              "pop_status": "Up",
+              "location_ref": null,
+              "pon_port": null,
+              "model": null,
+              "object_status": "Deliverable",
+              "lease_time": "2023-06-06T15:44:00+02:00",
+              "cpe_model": null,
+              "cpe_port_speed": 1000,
+              "cpe_plugged_into": 1,
+              "fibre_port_speed": 1000,
+              "plugged_in": "Yes",
+              "since": null,
+              "last_uptime": "2023-06-03T18:14:37+02:00",
+              "last_downtime": "2023-06-03T16:14:17+02:00",
+              "ont_distance": 20000.0,
+              "rx_light_level": -12.47,
+              "rx_low": -29.2,
+              "rx_high": -1.0,
+              "rx_status": "Normal",
+              "sfp_light_level": -6.0,
+              "sfp_low": -30.0,
+              "sfp_high": -1.0,
+              "sfp_status": "Normal",
+              "tx_light_level": -6.0,
+              "tx_low": -11.0,
+              "tx_high": -1.0,
+              "tx_status": "Normal",
+              "sfp_rx_light_level": -8.0,
+              "sfp_rx_low": -30.0,
+              "sfp_rx_high": -1.0,
+              "sfp_rx_status": "Normal",
+              "name": "5",
+              "olt": "Mulbarton",
+              "olt_name": "Mulbarton",
+              "type": "object",
+              "reference": "VT-MBT-OB-0704",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-06-05T22:00:51+02:00",
+              "switch": "mulbarton-a50"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "active_e_mac_missing_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-MM-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [],
+              "alarms": [],
+              "oper_status": "Up",
+              "admin_status": "Up",
+              "status": "Up",
+              "pop_status": "Up",
+              "location_ref": null,
+              "pon_port": null,
+              "model": null,
+              "object_status": "Deliverable",
+              "lease_time": "2099-06-06T15:44:00+02:00",
+              "cpe_model": null,
+              "cpe_port_speed": 1000,
+              "cpe_plugged_into": 1,
+              "fibre_port_speed": 1000,
+              "plugged_in": "Yes",
+              "since": null,
+              "last_uptime": "2023-06-03T18:14:37+02:00",
+              "last_downtime": "2023-06-03T16:14:17+02:00",
+              "ont_distance": 20000.0,
+              "rx_light_level": -12.47,
+              "rx_low": -29.2,
+              "rx_high": -1.0,
+              "rx_status": "Normal",
+              "sfp_light_level": -6.0,
+              "sfp_low": -30.0,
+              "sfp_high": -1.0,
+              "sfp_status": "Normal",
+              "tx_light_level": -6.0,
+              "tx_low": -11.0,
+              "tx_high": -1.0,
+              "tx_status": "Normal",
+              "sfp_rx_light_level": -8.0,
+              "sfp_rx_low": -30.0,
+              "sfp_rx_high": -1.0,
+              "sfp_rx_status": "Normal",
+              "name": "5",
+              "olt": "Mulbarton",
+              "olt_name": "Mulbarton",
+              "type": "object",
+              "reference": "VT-MBT-OB-0704",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-06-05T22:00:51+02:00",
+              "switch": "mulbarton-a50"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "active_e_power_down_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-PD-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [
+                "Possible Power Down"
+              ],
+              "alarms": [
+                "Dying Gasp"
+              ],
+              "oper_status": "Down",
+              "admin_status": "Up",
+              "status": "Down",
+              "pop_status": "Up",
+              "location_ref": "0-5-8-25",
+              "pon_port": "0-5-8",
+              "model": "EG8040H",
+              "object_status": null,
+              "lease_time": null,
+              "cpe_model": null,
+              "cpe_port_speed": null,
+              "cpe_plugged_into": null,
+              "fibre_port_speed": null,
+              "plugged_in": null,
+              "since": null,
+              "last_uptime": "2023-05-21T06:35:16+02:00",
+              "last_downtime": "2023-05-21T16:01:31+02:00",
+              "ont_distance": null,
+              "rx_light_level": null,
+              "rx_low": -30.0,
+              "rx_high": -10.0,
+              "rx_status": "Unknown",
+              "sfp_light_level": null,
+              "sfp_low": -30.0,
+              "sfp_high": -10.0,
+              "sfp_status": "Unknown",
+              "tx_light_level": null,
+              "tx_low": 1.0,
+              "tx_high": 3.0,
+              "tx_status": "Unknown",
+              "sfp_rx_light_level": null,
+              "sfp_rx_low": -30.0,
+              "sfp_rx_high": -10.0,
+              "sfp_rx_status": "Unknown",
+              "name": "23",
+              "olt": "Panorama",
+              "olt_name": "Panorama",
+              "type": "object",
+              "reference": "VT-PNR-OB-0623",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-06-05T22:06:52+02:00",
+              "switch": "panorama-a26"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "active_e_link_down_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-LD-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [
+                "Possible Fibre Fault"
+              ],
+              "alarms": [
+                "Loss of Signal"
+              ],
+              "oper_status": "Down",
+              "admin_status": "Up",
+              "status": "Down",
+              "pop_status": "Up",
+              "location_ref": "0-6-6-2",
+              "pon_port": "0-6-6",
+              "model": "040H",
+              "object_status": null,
+              "lease_time": null,
+              "cpe_model": null,
+              "cpe_port_speed": null,
+              "cpe_plugged_into": null,
+              "fibre_port_speed": null,
+              "plugged_in": null,
+              "since": null,
+              "last_uptime": null,
+              "last_downtime": null,
+              "ont_distance": null,
+              "rx_light_level": null,
+              "rx_low": -30.0,
+              "rx_high": -10.0,
+              "rx_status": "Unknown",
+              "sfp_light_level": null,
+              "sfp_low": -30.0,
+              "sfp_high": -10.0,
+              "sfp_status": "Unknown",
+              "tx_light_level": null,
+              "tx_low": 1.0,
+              "tx_high": 3.0,
+              "tx_status": "Unknown",
+              "sfp_rx_light_level": null,
+              "sfp_rx_low": -30.0,
+              "sfp_rx_high": -10.0,
+              "sfp_rx_status": "Unknown",
+              "name": "23",
+              "olt": "Panorama",
+              "olt_name": "Panorama",
+              "type": "object",
+              "reference": "VT-PNR-OB-0623",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-06-05T22:06:52+02:00",
+              "switch": "panorama-a26"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "active_e_no_device_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-ND-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [
+                "No Device Has Been Connected"
+              ],
+              "alarms": [],
+              "oper_status": "Up",
+              "admin_status": "Up",
+              "status": "Up",
+              "pop_status": "Up",
+              "location_ref": null,
+              "pon_port": null,
+              "model": null,
+              "object_status": "Deliverable",
+              "lease_time": null,
+              "cpe_model": null,
+              "cpe_port_speed": null,
+              "cpe_plugged_into": null,
+              "fibre_port_speed": null,
+              "plugged_in": "No",
+              "since": null,
+              "last_uptime": "2023-06-04T18:00:50+02:00",
+              "last_downtime": "2023-06-05T22:00:31+02:00",
+              "ont_distance": 20000.0,
+              "rx_light_level": -40.0,
+              "rx_low": -29.21,
+              "rx_high": -1.0,
+              "rx_status": "Abnormal",
+              "sfp_light_level": null,
+              "sfp_low": -30.0,
+              "sfp_high": -1.0,
+              "sfp_status": "Unknown",
+              "tx_light_level": -5.96,
+              "tx_low": -11.0,
+              "tx_high": -1.0,
+              "tx_status": "Normal",
+              "sfp_rx_light_level": null,
+              "sfp_rx_low": -30.0,
+              "sfp_rx_high": -1.0,
+              "sfp_rx_status": "Unknown",
+              "name": "23",
+              "olt": "Panorama",
+              "olt_name": "Panorama",
+              "type": "object",
+              "reference": "VT-PNR-OB-0623",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-06-05T22:06:52+02:00",
+              "switch": "panorama-a26"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "active_rx_light_levels_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-RA-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [
+                "RX Light Levels Abnormal"
+              ],
+              "alarms": [],
+              "oper_status": "Up",
+              "admin_status": "Up",
+              "status": "Up",
+              "pop_status": "Up",
+              "location_ref": null,
+              "pon_port": null,
+              "model": null,
+              "object_status": "Deliverable",
+              "lease_time": null,
+              "cpe_model": null,
+              "cpe_port_speed": null,
+              "cpe_plugged_into": null,
+              "fibre_port_speed": null,
+              "plugged_in": "No",
+              "since": null,
+              "last_uptime": "2023-06-04T18:00:50+02:00",
+              "last_downtime": "2023-06-05T22:00:31+02:00",
+              "ont_distance": 20000.0,
+              "rx_light_level": -40.0,
+              "rx_low": -29.21,
+              "rx_high": -1.0,
+              "rx_status": "Abnormal",
+              "sfp_light_level": null,
+              "sfp_low": -30.0,
+              "sfp_high": -1.0,
+              "sfp_status": "Unknown",
+              "tx_light_level": -5.96,
+              "tx_low": -11.0,
+              "tx_high": -1.0,
+              "tx_status": "Normal",
+              "sfp_rx_light_level": null,
+              "sfp_rx_low": -30.0,
+              "sfp_rx_high": -1.0,
+              "sfp_rx_status": "Unknown",
+              "name": "23",
+              "olt": "Panorama",
+              "olt_name": "Panorama",
+              "type": "object",
+              "reference": "VT-PNR-OB-0623",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-06-05T22:06:52+02:00",
+              "switch": "panorama-a26"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "active_no_order_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-NO-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [
+                "No Active Order"
+              ],
+              "alarms": [],
+              "oper_status": "Up",
+              "admin_status": "Up",
+              "status": "Up",
+              "pop_status": "Up",
+              "location_ref": null,
+              "pon_port": null,
+              "model": null,
+              "object_status": "Deliverable",
+              "lease_time": "2099-05-25T00:04:00+02:00",
+              "cpe_model": null,
+              "cpe_port_speed": 1000,
+              "cpe_plugged_into": 1,
+              "fibre_port_speed": 1000,
+              "plugged_in": "Yes",
+              "since": null,
+              "last_uptime": "2023-05-24T00:03:34+02:00",
+              "last_downtime": "2023-05-24T00:03:32+02:00",
+              "ont_distance": 20000.0,
+              "rx_light_level": -10.63,
+              "rx_low": -29.2,
+              "rx_high": -1.0,
+              "rx_status": "Normal",
+              "sfp_light_level": -6.1,
+              "sfp_low": -30,
+              "sfp_high": -1,
+              "sfp_status": "Normal",
+              "tx_light_level": -5.56,
+              "tx_low": -11.0,
+              "tx_high": -1.0,
+              "tx_status": "Normal",
+              "sfp_rx_light_level": -9.4,
+              "sfp_rx_low": -30,
+              "sfp_rx_high": -1,
+              "sfp_rx_status": "Normal",
+              "name": "1",
+              "olt": "Tygerdal",
+              "olt_name": "Tygerdal",
+              "type": "object",
+              "reference": "VT-TGE-OB-1585",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-05-24T11:17:53+02:00",
+              "switch": "tygerdal-a34"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "active_no_service_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-NS-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [
+                "No Active Service"
+              ],
+              "alarms": [],
+              "oper_status": "Up",
+              "admin_status": "Up",
+              "status": "Up",
+              "pop_status": "Up",
+              "location_ref": null,
+              "pon_port": null,
+              "model": null,
+              "object_status": "Deliverable",
+              "lease_time": "2099-05-25T00:04:00+02:00",
+              "cpe_model": null,
+              "cpe_port_speed": 1000,
+              "cpe_plugged_into": 1,
+              "fibre_port_speed": 1000,
+              "plugged_in": "Yes",
+              "since": null,
+              "last_uptime": "2023-05-24T00:03:34+02:00",
+              "last_downtime": "2023-05-24T00:03:32+02:00",
+              "ont_distance": 20000.0,
+              "rx_light_level": -10.63,
+              "rx_low": -29.2,
+              "rx_high": -1.0,
+              "rx_status": "Normal",
+              "sfp_light_level": -6.1,
+              "sfp_low": -30,
+              "sfp_high": -1,
+              "sfp_status": "Normal",
+              "tx_light_level": -5.56,
+              "tx_low": -11.0,
+              "tx_high": -1.0,
+              "tx_status": "Normal",
+              "sfp_rx_light_level": -9.4,
+              "sfp_rx_low": -30,
+              "sfp_rx_high": -1,
+              "sfp_rx_status": "Normal",
+              "name": "1",
+              "olt": "Tygerdal",
+              "olt_name": "Tygerdal",
+              "type": "object",
+              "reference": "VT-TGE-OB-1585",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-05-24T11:17:53+02:00",
+              "switch": "tygerdal-a34"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "active_tx_light_levels_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-TA-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [
+                "TX Light Levels Abnormal"
+              ],
+              "alarms": [],
+              "oper_status": "Up",
+              "admin_status": "Up",
+              "status": "Up",
+              "pop_status": "Up",
+              "location_ref": null,
+              "pon_port": null,
+              "model": null,
+              "object_status": "Deliverable",
+              "lease_time": null,
+              "cpe_model": null,
+              "cpe_port_speed": null,
+              "cpe_plugged_into": null,
+              "fibre_port_speed": null,
+              "plugged_in": "No",
+              "since": null,
+              "last_uptime": "2023-05-22T17:20:04+02:00",
+              "last_downtime": "2023-06-10T20:36:19+02:00",
+              "ont_distance": 20000.0,
+              "rx_light_level": -10.03,
+              "rx_low": -28.24,
+              "rx_high": 0.1,
+              "rx_status": "Normal",
+              "sfp_light_level": null,
+              "sfp_low": -30.0,
+              "sfp_high": -1.0,
+              "sfp_status": "Unknown",
+              "tx_light_level": -27.21,
+              "tx_low": -12.0,
+              "tx_high": 0.1,
+              "tx_status": "Abnormal",
+              "sfp_rx_light_level": null,
+              "sfp_rx_low": -30.0,
+              "sfp_rx_high": -1.0,
+              "sfp_rx_status": "Unknown",
+              "name": "7",
+              "olt": "Mulbarton",
+              "olt_name": "Mulbarton",
+              "type": "object",
+              "reference": "VT-MBT-OB-2077",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-06-11T20:54:58+02:00",
+              "switch": "mulbarton-a90"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "active_sfp_light_levels_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-SA-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [
+                "SFP Light Levels Abnormal"
+              ],
+              "alarms": [],
+              "oper_status": "Up",
+              "admin_status": "Up",
+              "status": "Up",
+              "pop_status": "Up",
+              "location_ref": null,
+              "pon_port": null,
+              "model": null,
+              "object_status": "Deliverable",
+              "lease_time": null,
+              "cpe_model": null,
+              "cpe_port_speed": 100,
+              "cpe_plugged_into": 1,
+              "fibre_port_speed": 1000,
+              "plugged_in": "Yes",
+              "since": null,
+              "last_uptime": null,
+              "last_downtime": null,
+              "ont_distance": 20000.0,
+              "rx_light_level": -7.9,
+              "rx_low": 0.0,
+              "rx_high": 0.0,
+              "rx_status": "Abnormal",
+              "sfp_light_level": 0.0,
+              "sfp_low": -30.0,
+              "sfp_high": -1.0,
+              "sfp_status": "Abnormal",
+              "tx_light_level": -6.0,
+              "tx_low": 0.0,
+              "tx_high": 0.0,
+              "tx_status": "Abnormal",
+              "sfp_rx_light_level": 0.0,
+              "sfp_rx_low": -30.0,
+              "sfp_rx_high": -1.0,
+              "sfp_rx_status": "Abnormal",
+              "name": "22",
+              "olt": "Summergreens",
+              "olt_name": "Summergreens",
+              "type": "object",
+              "reference": "VT-TSS-OB-3982",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-05-31T09:49:28+02:00",
+              "switch": "summergreens-a64"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "active_sfp_rx_light_levels_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/VT-MBT-SR-.{4}/status",
+      "queryStringParameters": {
+        "count": [
+          "1"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "list": [
+            {
+              "alerts": [
+                "SFP RX Light Levels Abnormal"
+              ],
+              "alarms": [],
+              "oper_status": "Up",
+              "admin_status": "Up",
+              "status": "Up",
+              "pop_status": "Up",
+              "location_ref": null,
+              "pon_port": null,
+              "model": null,
+              "object_status": "Deliverable",
+              "lease_time": null,
+              "cpe_model": null,
+              "cpe_port_speed": 100,
+              "cpe_plugged_into": 1,
+              "fibre_port_speed": 1000,
+              "plugged_in": "Yes",
+              "since": null,
+              "last_uptime": null,
+              "last_downtime": null,
+              "ont_distance": 20000.0,
+              "rx_light_level": -7.9,
+              "rx_low": 0.0,
+              "rx_high": 0.0,
+              "rx_status": "Abnormal",
+              "sfp_light_level": 0.0,
+              "sfp_low": -30.0,
+              "sfp_high": -1.0,
+              "sfp_status": "Abnormal",
+              "tx_light_level": -6.0,
+              "tx_low": 0.0,
+              "tx_high": 0.0,
+              "tx_status": "Abnormal",
+              "sfp_rx_light_level": 0.0,
+              "sfp_rx_low": -30.0,
+              "sfp_rx_high": -1.0,
+              "sfp_rx_status": "Abnormal",
+              "name": "22",
+              "olt": "Summergreens",
+              "olt_name": "Summergreens",
+              "type": "object",
+              "reference": "VT-TSS-OB-3982",
+              "vendor": "Ventura Next",
+              "network_id": 453,
+              "network_type": "Active Ethernet",
+              "operator_id": 1,
+              "added": "2023-05-31T09:49:28+02:00",
+              "switch": "summergreens-a64"
+            }
+          ],
+          "page": 1,
+          "count": 1,
+          "total": {
+            "value": 88,
+            "relation": "eq"
+          }
+        }
+      }
+    }
+  }
+]

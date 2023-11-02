@@ -1,0 +1,102 @@
+{
+	"description": "Apache Common Format Pipeline",
+	"processors": [
+		{
+			"set": {
+				"field": "source",
+				"value": "common_pipeline"
+			}
+		},
+		{
+			"grok": {
+				"field": "message",
+				"patterns": [
+					"%{IPORHOST:client_ip} %{HTTPDUSER:ident} %{HTTPDUSER:auth} \\[%{ALTDATE:http_date}\\] \"(?:%{WORD:request.method} %{NOTSPACE:request.resource}(?: HTTP/%{NUMBER:request.http_version})?|%{DATA:rawrequest})\" %{NUMBER:response.code} (?:%{NUMBER:response.size}|-) \"%{DATA:referrer}\" \"%{DATA:agent}\" %{DATA:forwarder} %{NUMBER:duration} %{NUMBER:duration_2}",
+					"%{IPORHOST:client_ip} %{HTTPDUSER:ident} %{HTTPDUSER:auth} \\[%{ALTDATE:http_date}\\] \"(?:%{WORD:request.method} %{NOTSPACE:request.resource}(?: HTTP/%{NUMBER:request.http_version})?|%{DATA:rawrequest})\" %{NUMBER:response.code} (?:%{NUMBER:response.size}|-) \"%{DATA:referrer}\" \"%{DATA:agent}\" %{DATA:forwarder} %{NUMBER:duration}",
+					"%{IPORHOST:client_ip} %{HTTPDUSER:ident} %{HTTPDUSER:auth} \\[%{ALTDATE:http_date}\\] \"(?:%{WORD:request.method} %{NOTSPACE:request.resource}(?: HTTP/%{NUMBER:request.http_version})?|%{DATA:rawrequest})\" %{NUMBER:response.code} (?:%{NUMBER:response.size}|-) \"%{DATA:referrer}\" \"%{DATA:agent}\" %{NUMBER:duration} %{NUMBER:duration_2}",
+					"%{IPORHOST:client_ip} %{HTTPDUSER:ident} %{HTTPDUSER:auth} \\[%{ALTDATE:http_date}\\] \"(?:%{WORD:request.method} %{NOTSPACE:request.resource}(?: HTTP/%{NUMBER:request.http_version})?|%{DATA:rawrequest})\" %{NUMBER:response.code} (?:%{NUMBER:response.size}|-) \"%{DATA:referrer}\" \"%{DATA:agent}\" %{NUMBER:duration}",
+					"%{IPORHOST:client_ip} %{HTTPDUSER:ident} %{HTTPDUSER:auth} \\[%{ALTDATE:http_date}\\] \"(?:%{WORD:request.method} %{NOTSPACE:request.resource}(?: HTTP/%{NUMBER:request.http_version})?|%{DATA:rawrequest})\" %{NUMBER:response.code} (?:%{NUMBER:response.size}|-) \"%{DATA:referrer}\" \"%{DATA:agent}\" %{DATA:forwarder}",
+					"%{IPORHOST:client_ip} %{HTTPDUSER:ident} %{HTTPDUSER:auth} \\[%{ALTDATE:http_date}\\] \"(?:%{WORD:request.method} %{NOTSPACE:request.resource}(?: HTTP/%{NUMBER:request.http_version})?|%{DATA:rawrequest})\" %{NUMBER:response.code} (?:%{NUMBER:response.size}|-) \"%{DATA:referrer}\" \"%{DATA:agent}\""
+				],
+				"pattern_definitions": {
+					"HTTPDUSER": "%{EMAILADDRESS}|%{USER}",
+					"ALTDATE": "%{MONTHDAY}/%{MONTH}/%{YEAR}:%{TIME} %{NOTSPACE}"
+				}
+			}
+		},
+		{
+			"drop": {
+				"if": "ctx.request == null"
+			}
+		},
+		{
+			"grok": {
+				"field": "request.resource",
+				"patterns": [
+					"%{URIPATH:request.path}(?:%{URIPARAM:request.query})?"
+				]
+			}
+		},
+		{
+			"user_agent": {
+				"field": "agent"
+			}
+		},
+		{
+			"date": {
+				"field": "http_date",
+				"formats": [
+					"dd/MMM/yyyy:H:m:s",
+					"dd/MMM/yyyy:H:m:s z",
+					"dd/MMM/yyyy:H:m:s Z",
+					"ISO8601"
+				]
+			}
+		},
+		{
+			"set": {
+				"field": "finished_at",
+				"value": "{{@timestamp}}"
+			}
+		},
+		{
+			"set": {
+				"field": "started_at",
+				"value": "{{@timestamp}}"
+			}
+		},
+		{
+			"set": {
+				"field": "user_agent.full",
+				"value": "{{agent}}"
+			}
+		},
+		{
+			"set": {
+				"field": "user_agent.ip_address",
+				"value": "{{client_ip}}"
+			}
+		},
+		{
+			"set": {
+				"field": "request.identifier",
+				"value": "{{request.method}} {{request.path}}"
+			}
+		},
+		{
+			"script": {
+				"lang": "painless",
+				"source": "if (Integer.parseInt(ctx.response.code) < 100 || Integer.parseInt(ctx.response.code) >= 600) {\n  ctx.response.status = 'invalid';\n} else if (Integer.parseInt(ctx.response.code) < 200) {\n  ctx.response.status = 'informational';\n} else if (Integer.parseInt(ctx.response.code) < 300) {\n  ctx.response.status = 'success';\n} else if (Integer.parseInt(ctx.response.code) < 400) {\n  ctx.response.status = 'redirect';\n} else if (Integer.parseInt(ctx.response.code) < 500) {\n  ctx.response.status = 'client_error';\n} else if (Integer.parseInt(ctx.response.code) < 600) {\n  ctx.response.status = 'server_error';\n} else {\n  ctx.response.status = 'invalid';\n}\n"
+			}
+		},
+		{
+			"remove": {
+				"field": [
+					"agent",
+					"http_date",
+					"client_ip"
+				]
+			}
+		}
+	]
+}

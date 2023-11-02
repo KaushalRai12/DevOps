@@ -1,0 +1,4 @@
+.nuget-source:
+  image: $CI_REGISTRY/internal/devops/dotnet-builder:$DOT_NET_VERSION
+  before_script:
+  - dotnet nuget add source https://nexus.vumaex.net/repository/nuget-aex/index.json --username gitlab --password $NUGET_PASSWORD --name AEx --store-password-in-clear-text

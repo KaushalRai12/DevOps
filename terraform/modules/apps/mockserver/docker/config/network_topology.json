@@ -1,0 +1,344 @@
+[
+  {
+    "id": "topology_node_mac_gpon_ready_200",
+    "httpRequest": {
+      "path": "^/networks/nodes/B0-95-75-0B-BD-AB$",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "id": 7871524,
+          "guid": "FC37C518-3702-4D36-8C97-BBF515F49ADB",
+          "network_id": 1233,
+          "operator_id": 1,
+          "operator_guid": "151BB58D-C9D3-44A3-AF5A-61B74B83F988",
+          "type": "UnassignedSn",
+          "node_type": "leaf",
+          "parent_id": 2666101,
+          "parent_information": {
+            "type": "Device",
+            "identifier": "Alrode",
+            "description": "NTWK-Alrode"
+          },
+          "children": [],
+          "identifier": "1-8-15-3389",
+          "status": "up",
+          "reference": "CXNK00EB09DC",
+          "information": {
+            "type": "DiscOnt",
+            "id": {
+              "discont": "CXNKeb09dc"
+            },
+            "model": "803G",
+            "vendor": "CXNK",
+            "ont": "3389",
+            "ontprof": {
+              "type": "OntProf",
+              "id": {
+                "ontprof": {
+                  "name": "803G",
+                  "content": "164"
+                }
+              }
+            },
+            "mfg-serno": {},
+            "clei": "BVMCN10ARA",
+            "descr": {},
+            "op-stat": "enable",
+            "onu-mac": "f8:85:f9:66:62:5f",
+            "pon": {
+              "type": "GponPort",
+              "id": {
+                "shelf": "1",
+                "card": "8",
+                "gponport": "15"
+              }
+            }
+          },
+          "description": "",
+          "updated_at": "2023-06-11T22:13:21+02:00",
+          "created_at": "2023-03-03T18:30:22+02:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "topology_node_gpon_ready_200",
+    "httpRequest": {
+      "path": "^/networks/nodes/((48575443|ZNTS|CXNK)00000200)$",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "id": 7871524,
+          "guid": "FC37C518-3702-4D36-8C97-BBF515F49ADB",
+          "network_id": 1233,
+          "operator_id": 1,
+          "operator_guid": "151BB58D-C9D3-44A3-AF5A-61B74B83F988",
+          "type": "UnassignedSn",
+          "node_type": "leaf",
+          "parent_id": 2666101,
+          "parent_information": {
+            "type": "Device",
+            "identifier": "Alrode",
+            "description": "NTWK-Alrode"
+          },
+          "children": [],
+          "identifier": "1-8-15-3389",
+          "status": "up",
+          "reference": "CXNK00EB09DC",
+          "information": {
+            "type": "DiscOnt",
+            "id": {
+              "discont": "CXNKeb09dc"
+            },
+            "model": "803G",
+            "vendor": "CXNK",
+            "ont": "3389",
+            "ontprof": {
+              "type": "OntProf",
+              "id": {
+                "ontprof": {
+                  "name": "803G",
+                  "content": "164"
+                }
+              }
+            },
+            "mfg-serno": {},
+            "clei": "BVMCN10ARA",
+            "descr": {},
+            "op-stat": "enable",
+            "onu-mac": "f8:85:f9:66:62:5f",
+            "pon": {
+              "type": "GponPort",
+              "id": {
+                "shelf": "1",
+                "card": "8",
+                "gponport": "15"
+              }
+            }
+          },
+          "description": "",
+          "updated_at": "2023-06-11T22:13:21+02:00",
+          "created_at": "2023-03-03T18:30:22+02:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "topology_node_gpon_not_found_404",
+    "httpRequest": {
+      "path": "^/networks/nodes/((48575443|ZNTS|CXNK)00000404)$",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "statusCode" : 404,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": ""
+      }
+    }
+  },
+  {
+    "id": "topology_node_gpon_could_not_check_409",
+    "httpRequest": {
+      "path": "^/networks/nodes/((48575443|ZNTS|CXNK)00000409)$",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "statusCode" : 409,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "id": 2666101,
+          "guid": "EF03DAE1-FCE7-4FA8-AFB9-D5C5DF44B7B5",
+          "network_id": 1233,
+          "operator_id": 1,
+          "operator_guid": "151BB58D-C9D3-44A3-AF5A-61B74B83F988",
+          "type": "Device",
+          "node_type": "node",
+          "parent_id": null,
+          "parent_information": null,
+          "children": [],
+          "identifier": "Alrode",
+          "status": "up",
+          "reference": "CXNK00000409",
+          "information": null,
+          "description": "NTWK-Alrode",
+          "updated_at": "2020-08-21T16:19:07+02:00",
+          "created_at": "2020-08-21T16:19:07+02:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "topology_node",
+    "httpRequest": {
+      "path": "^/networks/nodes/((48575443|ZNTS|CXNK).{8}|VT-[^\\/]*)$",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "id": 7871524,
+          "guid": "FC37C518-3702-4D36-8C97-BBF515F49ADB",
+          "network_id": 1233,
+          "operator_id": 1,
+          "operator_guid": "151BB58D-C9D3-44A3-AF5A-61B74B83F988",
+          "type": "GponOnuPhysical",
+          "node_type": "leaf",
+          "parent_id": 2666101,
+          "parent_information": {
+            "type": "Device",
+            "identifier": "Alrode",
+            "description": "NTWK-Alrode"
+          },
+          "children": [],
+          "identifier": "1-8-15-3389",
+          "status": "up",
+          "reference": "CXNK00EB09DC",
+          "information": {
+            "type": "DiscOnt",
+            "id": {
+              "discont": "CXNKeb09dc"
+            },
+            "model": "803G",
+            "vendor": "CXNK",
+            "ont": "3389",
+            "ontprof": {
+              "type": "OntProf",
+              "id": {
+                "ontprof": {
+                  "name": "803G",
+                  "content": "164"
+                }
+              }
+            },
+            "mfg-serno": {},
+            "clei": "BVMCN10ARA",
+            "descr": {},
+            "op-stat": "enable",
+            "onu-mac": "f8:85:f9:66:62:5f",
+            "pon": {
+              "type": "GponPort",
+              "id": {
+                "shelf": "1",
+                "card": "8",
+                "gponport": "15"
+              }
+            }
+          },
+          "description": "",
+          "updated_at": "2023-06-11T22:13:21+02:00",
+          "created_at": "2023-03-03T18:30:22+02:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "topology_parent",
+    "httpRequest": {
+      "path": "^/networks/nodes/\\d+$",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "id": 2666101,
+          "guid": "EF03DAE1-FCE7-4FA8-AFB9-D5C5DF44B7B5",
+          "network_id": 1233,
+          "operator_id": 1,
+          "operator_guid": "151BB58D-C9D3-44A3-AF5A-61B74B83F988",
+          "type": "Device",
+          "node_type": "node",
+          "parent_id": null,
+          "parent_information": null,
+          "children": [],
+          "identifier": "Alrode",
+          "status": "up",
+          "reference": "10.254.1.78",
+          "information": null,
+          "description": "NTWK-Alrode",
+          "updated_at": "2020-08-21T16:19:07+02:00",
+          "created_at": "2020-08-21T16:19:07+02:00"
+        }
+      }
+    }
+  },
+  {
+    "id": "topology_network",
+    "httpRequest": {
+      "path": "^/networks/\\d+$",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "id": 1233,
+          "name": "SADV Calix Network",
+          "type": "calix",
+          "updated_at": "2020-07-23T10:01:38+02:00",
+          "created_at": "2020-07-23T10:01:38+02:00",
+          "vendor_code": "CXNK",
+          "network_type": "GPON"
+        }
+      }
+    }
+  }
+]

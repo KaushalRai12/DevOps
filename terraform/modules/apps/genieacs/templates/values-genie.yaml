@@ -1,0 +1,65 @@
+fullnameOverride: ${full_name}
+
+image:
+  registry: docker.io
+  repository: drumsergio/genieacs
+  pullPolicy: IfNotPresent
+  tag: "1.2.8"
+
+autoscaling:
+  enabled: false
+
+replicaCount: 1
+podAnnotations: {}
+imagePullSecrets: 
+- name: gitlab-docker-registry
+podSecurityContext: {}
+securityContext: {}
+
+service_http:
+  type: ClusterIP
+  port: 80
+service_cwmp:
+  type: ClusterIP
+  port: 7547
+service_nbi:
+  type: ClusterIP
+  port: 7557
+service_fs:
+  type: ClusterIP
+  port: 7567
+
+ingress:
+  enabled: false
+
+resources: # Modify according to your size
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+serviceAccount:
+  create: false
+  name: ""
+
+nodeSelector:
+  aex/app: "true"
+
+env:
+  GENIEACS_SESSION_TIMEOUT: 60
+  GENIEACS_DEBUG_FILE: /var/log/genieacs/genieacs-debug.yaml
+  GENIEACS_EXT_DIR: /opt/genieacs/ext
+  GENIEACS_MONGODB_CONNECTION_URL: mongodb://genieacs:${db_password_genieacs}@${db_server}/genieacs
+
+  GENIEACS_UI_PORT: 80
+  GENIEACS_UI_INTERFACE: 0.0.0.0
+  GENIEACS_UI_JWT_SECRET: ${jwt_secret}
+  GENIEACS_UI_ACCESS_LOG_FILE: /var/log/genieacs/genieacs-ui-access.log
+
+  GENIEACS_CWMP_INTERFACE: 0.0.0.0
+  GENIEACS_CWMP_ACCESS_LOG_FILE: /var/log/genieacs/genieacs-cwmp-access.log
+
+  GENIEACS_NBI_INTERFACE: 0.0.0.0
+  GENIEACS_NBI_ACCESS_LOG_FILE: /var/log/genieacs/genieacs-nbi-access.log
+
+  GENIEACS_FS_INTERFACE: 0.0.0.0
+  GENIEACS_FS_ACCESS_LOG_FILE: /var/log/genieacs/genieacs-fs-access.log

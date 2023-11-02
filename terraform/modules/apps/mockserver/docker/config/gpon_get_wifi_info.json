@@ -1,0 +1,44 @@
+[
+  {
+    "id": "gpon_get_wifi_information",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)000.{5}?/wifi_information",
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "device_id": "167772198",
+          "frame": 0,
+          "slot": 1,
+          "port": 0,
+          "ont_id": 3,
+          "ssid_id": 1,
+          "state": "Active",
+          "ssid": "VC-1015-1828",
+          "device_number": 10,
+          "frequency": "2.4GHz",
+          "visible": "Enable",
+          "broadcast": "Enable",
+          "wmm": "Enable",
+          "transport_power": "100%",
+          "domain": "GB",
+          "channel": "Automatic",
+          "channel_width": "Auto 20/40",
+          "mode": "802.11b/g/n",
+          "auth_mode": "WPA/WPA2 Pre-Shared Key",
+          "encryption_mode": "TKIP&AES",
+          "added": "2022-07-25T13:01:18+02:00"
+        }
+      }
+    }
+  }
+]

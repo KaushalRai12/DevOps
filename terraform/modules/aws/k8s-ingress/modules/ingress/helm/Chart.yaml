@@ -1,0 +1,8 @@
+apiVersion: v2
+name: general-k8s-ingress
+type: application
+version: 1.0.14
+appVersion: 1.0.0
+maintainers:
+- name: Automation Exchange
+  url: http://www.automationexchange.co.za/

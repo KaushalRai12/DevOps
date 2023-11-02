@@ -1,0 +1,206 @@
+prometheusOperator:
+  namespaces:
+    additional:
+%{ for namespace in namespaces }
+    - ${namespace}
+%{ endfor }
+  kubeletService:
+    enabled: false
+
+  nodeSelector:
+    aex/devops: "true"
+
+global:
+  imagePullSecrets:
+  - name: gitlab-docker-registry
+
+alertmanager:
+  enabled: true
+  config:
+    global:
+      resolve_timeout: 5m
+      smtp_from: devops@aex.co.za
+      smtp_smarthost: email-smtp.eu-west-1.amazonaws.com:587
+      smtp_auth_username: ${smtp_username}
+      smtp_auth_password: ${smtp_password}
+      smtp_require_tls: true
+      slack_api_url: ${slack_url}
+    receivers:
+    - name: slack
+      slack_configs:
+      - channel: "#alerting-test"
+        send_resolved: true
+        title: |-
+          {{ .Status | toUpper }}: {{ .Labels.alertname }} - {{ .Labels.machine_name }}`
+        text: >-
+          {{ range .Alerts -}}
+          *Alert:* {{ .Annotations.summary }}{{ if .Labels.severity }} - `{{ .Labels.severity }}`{{ end }}
+
+          *Description:* {{ .Annotations.description }}
+
+          *Details:*
+            • *Machine:* `{{ .Labels.machine_name }}`
+            • *ID:* `{{ .Labels.machine_id }}`
+          {{ end }}
+
+    route:
+      #group_by: ['alertname', 'machine_name']
+      # When a new group of alerts is created by an incoming alert, wait at least 'group_wait' to send the initial notification.
+      # This way ensures that you get multiple alerts for the same group that start firing shortly after another are batched together on the first notification.
+      group_wait: 30s
+      # When the first notification was sent, wait 'group_interval' to send a batch of new alerts that started firing for that group.
+      group_interval: 5m
+      # If an alert has successfully been sent, wait 'repeat_interval' to resend them.
+      repeat_interval: 3h
+      receiver: slack
+      routes:
+      - matchers:
+        - severity="critical"
+
+# Alerting rules go here
+additionalPrometheusRulesMap:
+  aex-general-rules:
+    groups:
+    - name: MachineMetrics
+      rules:
+      - alert: InstanceLowMemory
+        expr: (1 - (node_memory_MemAvailable_bytes{job=~"ec2-static-servers"} / (node_memory_MemTotal_bytes{job=~"ec2-static-servers"}))) * 100 > 40
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Instance memory low"
+          description: "Instance is using more than 40% memory"
+      - alert: InstanceDown
+        expr: up == 0 and {job = 'ec2-static-servers'}
+        for: 1m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Instance down"
+          description: "Instance has been down for more than 1 minute."
+
+grafana:
+  enabled: false
+  forceDeployDatasources: true
+  forceDeployDashboards: true
+  persistence:
+    enabled: true
+    type: statefulset
+    size: 1Gi
+
+prometheus:
+  service:
+    type: ClusterIP
+
+  prometheusSpec:
+    nodeSelector:
+      aex/devops: "true"
+
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          accessModes:
+          - ReadWriteOnce
+          resources:
+            requests:
+              storage: 50Gi
+
+    retention: 90d
+
+    additionalScrapeConfigs:
+    - job_name: ec2-static-servers
+      relabel_configs:
+      - source_labels: [__meta_ec2_tag_Name]
+        target_label: machine_name
+      - source_labels: [__meta_ec2_instance_id]
+        target_label: machine_id
+
+      ec2_sd_configs:
+      - region: ${aws_region}
+        access_key: ${aws_access_key}
+        secret_key: ${aws_secret_key}
+        refresh_interval: 30m
+        port: 9100
+        filters:
+        - name: "tag:aex/monitor"
+          values:
+          - "true"
+        - name: vpc-id
+          values:
+          - ${vpc_id}
+
+coreDns:
+  enabled: true
+nodeExporter:
+  enabled: true
+prometheus-node-exporter:
+  prometheus:
+    monitor:
+      relabelings:
+      - sourceLabels: [__meta_kubernetes_pod_host_ip]
+        targetLabel: machine_name
+
+# Exporter for kubernetes pods etc
+kubeStateMetrics:
+  enabled: true
+kube-state-metrics:
+  rbac:
+    create: true
+  releaseLabel: true
+  prometheus:
+    monitor:
+      enabled: true
+
+      ## Scrape interval. If not set, the Prometheus default scrape interval is used.
+      ##
+      interval: ""
+
+      ## Scrape Timeout. If not set, the Prometheus default scrape timeout is used.
+      ##
+      scrapeTimeout: ""
+
+      ## proxyUrl: URL of a proxy that should be used for scraping.
+      ##
+      proxyUrl: ""
+
+      # Keep labels from scraped data, overriding server-side labels
+      ##
+      honorLabels: true
+
+      ## MetricRelabelConfigs to apply to samples after scraping, but before ingestion.
+      ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#relabelconfig
+      ##
+      metricRelabelings: []
+      # - action: keep
+      #   regex: 'kube_(daemonset|deployment|pod|namespace|node|statefulset).+'
+      #   sourceLabels: [__name__]
+
+      ## RelabelConfigs to apply to samples before scraping
+      ## ref: https://github.com/prometheus-operator/prometheus-operator/blob/main/Documentation/api.md#relabelconfig
+      ##
+      relabelings: []
+      # - sourceLabels: [__meta_kubernetes_pod_node_name]
+      #   separator: ;
+      #   regex: ^(.*)$
+      #   targetLabel: nodename
+      #   replacement: $1
+      #   action: replace
+
+  selfMonitor:
+    enabled: false
+
+kubelet:
+  enabled: true
+
+# Don't enable these - we don't need to (can't?) monitor EKS
+kubeProxy:
+  enabled: false
+kubeApiServer:
+  enabled: false
+kubeControllerManager:
+  enabled: false
+kubeEtcd:
+  enabled: false
+kubeScheduler:
+  enabled: false

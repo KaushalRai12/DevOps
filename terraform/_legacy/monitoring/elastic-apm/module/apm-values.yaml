@@ -1,0 +1,32 @@
+apmConfig:
+  apm-server.yml: |
+    apm-server:
+      host: "0.0.0.0:8200"
+    queue: {}
+    kibana:
+      enabled: true
+      host: http://kibana-metrics:5601
+    output.elasticsearch:
+      hosts: ["http://elastic-metrics:9200"]
+service:
+  type: NodePort
+  nodePort: 31567
+
+resources:
+  requests:
+    cpu: 0.25
+    memory: 256Mi
+  limits:
+    cpu: 1
+    memory: 2Gi
+
+replicas: 2
+
+affinity:
+  nodeAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    - weight: 1
+      preference:
+        matchExpressions:
+        - key: aex/has-native
+          operator: DoesNotExist

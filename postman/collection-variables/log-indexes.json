@@ -1,0 +1,18 @@
+[
+	{
+		"elastic-log-server": "http://elastic-logs.dev.aex.systems:9200",
+		"retention-period": "7d"
+	},
+	{
+		"elastic-log-server": "http://elastic-logs.national-us.aex.systems:9200",
+		"retention-period": "30d"
+	},
+	{
+		"elastic-log-server": "http://elastic-logs.gcpud.aex.systems:9200",
+		"retention-period": "30d"
+	},
+	{
+		"elastic-log-server": "http://preprod.elastic-logs.gcpud.aex.systems:9200",
+		"retention-period": "7d"
+	}
+]

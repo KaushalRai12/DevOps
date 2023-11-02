@@ -1,0 +1,32 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: aex-cluster-admin
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: global-roles
+    meta.helm.sh/release-namespace: default
+subjects:
+  - kind: User
+    name: gilbertg-prod
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: aex-devops
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: aex-prod
+

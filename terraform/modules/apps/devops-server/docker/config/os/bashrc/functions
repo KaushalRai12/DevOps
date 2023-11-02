@@ -1,0 +1,5 @@
+function get-branch {
+  # Note: using $$ to escape terraform template rendering
+	BRANCH=$${1:-master}
+	git fetch --quiet && git checkout $BRANCH && git pull --quiet
+}

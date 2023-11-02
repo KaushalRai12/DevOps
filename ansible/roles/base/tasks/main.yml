@@ -1,0 +1,62 @@
+# Keep Packages up to date
+- name: Update APT package cache
+  apt: update_cache=yes cache_valid_time=3600
+
+- name: Upgrade to the latest SAFE packages
+  apt: upgrade=safe
+
+# Install security upgrades unattended
+- name: Install unattended-upgrades
+  apt: pkg=unattended-upgrades state=present
+
+- name: Adjust APT update intervals
+  copy: src=apt_periodic dest=/etc/apt/apt.conf.d/10periodic
+
+- name: Make sure unattended-upgrades only installs from $ubuntu_release-security
+  lineinfile: dest=/etc/apt/apt.conf.d/50unattended-upgrades regexp="$ubuntu_release-updates" state=absent
+
+- name: Make sure unused dependencies are removed
+  lineinfile:
+    dest: /etc/apt/apt.conf.d/50unattended-upgrades
+    regexp: "^Unattended-Upgrade::Remove-Unused-Dependencies"
+    line: "Unattended-Upgrade::Remove-Unused-Dependencies \"true\";"
+    state: present
+
+# Install and set up NTP
+- name: Install the NTP daemon
+  apt: pkg=ntp state=latest
+
+# Configure the postfix options
+- name: Set Postfix option hostname
+  debconf: name=postfix question="postfix/mailname" value="{{ansible_fqdn}}" vtype="string"
+
+- name: Set Postfix option type as internet site
+  debconf: name=postfix question="postfix/main_mailer_type" value="'Internet Site'" vtype="string"
+
+# Install basic utilities (like screen and vim)
+- name: Install basic utilities
+  apt:
+    state: present
+    pkg:
+    - vim
+    - curl
+    - wget
+    - htop
+    - iotop
+    - postfix
+    - apt-transport-https
+    - ca-certificates
+    - gnupg-agent
+    - software-properties-common
+    - net-tools
+
+# Add relayhost to postfix
+- name: Add relayhost address to postfix Configuration
+  lineinfile: dest=/etc/postfix/main.cf regexp="^relayhost" line="relayhost = 41.79.240.25" state=present
+
+- name: Set the Timezone
+  timezone:
+    name: Africa/Johannesburg
+
+# - name: Add the default user
+#   user: name=aex shell=/bin/bash groups=aex,sudo

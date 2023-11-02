@@ -1,0 +1,18 @@
+sonar:
+  extends: .nuget-source
+  image: $CI_REGISTRY/internal/devops/dotnet-core-sonar:$DOT_NET_VERSION
+  stage: analysis
+  allow_failure: false
+  variables:
+    ASPNETCORE_ENVIRONMENT: unit-test-ci
+  rules:
+  - if: '$CI_MERGE_REQUEST_ID != null || $CI_COMMIT_BRANCH =~ "/^(master|dev)$/" || $CI_COMMIT_MESSAGE =~ /.*SONAR!.*/'
+    when: always
+  tags:
+  - aws-k8s
+  script:
+  - dotnet test --filter "Status!=WIP&ExcludeFromCi!=true" -p:CollectCoverage=true -p:CoverletOutputFormat=opencover -p:CoverletOutput=/project/coverage.xml
+  - dotnet build-server shutdown
+  - dotnet-sonarscanner begin -k:$SONAR_PROJECT_KEY -d:sonar.login=$SONAR_TOKEN -d:sonar.cs.opencover.reportsPaths=/project/coverage.xml -d:sonar.qualitygate.wait=true -s:"/sonar-scanner/SonarQube.Analysis.xml"
+  - dotnet build
+  - dotnet-sonarscanner end -d:sonar.login=$SONAR_TOKEN

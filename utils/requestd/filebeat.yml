@@ -1,0 +1,203 @@
+filebeat.modules:
+filebeat.registry.path: /var/lib/filebeat/registry
+  #- module: system
+  #- module: nginx
+  #  access:
+  #    enabled: true
+  #    var.paths: ["/var/log/nginx/*access.log"]
+  #  error:
+  #    enabled: false
+  #    var.paths: ["/var/log/nginx/*error.log", "/var/log/nginx/*error.log.1"]
+  #logging.level: debug
+
+filebeat.inputs:
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: fno.vumatel.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/fno-interface-vumatel-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: fno.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/fno-interface-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: nms_service
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/zms_service-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: work_orders
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/work-orders-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: sp.vumatel.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_vumatel-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: boleng.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_boleng-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: my.evotel.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_evotel-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: linklayer.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_linklayer-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: shop.linklayer.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_linklayer_shop-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: metrowatt.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_metrowatt-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: mockfno.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_mockfno-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: mpf.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_mpf-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: netstream.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_netstream-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: portal.openfibre.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_openfibre-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: ptzambia.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_ptzambia-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: skyfi.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_skyfi-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: vumatel-ct.radius.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/vumatel-ct-radius-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: vumatel-jhb.radius.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/vumatel-jhb-radius-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: vumatel-kzn.radius.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/vumatel-kzn-radius-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: api.client-prepaid.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/api_prepaid-client-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: ip-pools.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/ip-pools-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: status.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/status_aex-access.log
+- type: log
+  pipeline: common_pipeline
+  fields:
+    site: zoomfibre.aex.co.za
+  fields_under_root: true
+  paths:
+  - /var/log/nginx/portal_zoomfibre-access.log
+
+#processors:
+#  - add_fields:
+#      target: ''
+#      fields:
+#        site: fno.aex.co.za
+#      when:
+#        equals:
+#          log.file.path: /var/log/nginx/fno-interface-access.log
+#  - add_fields:
+#      target: ''
+#      fields:
+#        site: nms_service
+#      when:
+#        equals:
+#          log.file.path: /var/log/nginx/zms_service-access.log
+#  - add_fields:
+#      target: ''
+#      fields:
+#        site: work_orders
+#      when:
+#        equals:
+#          log.file.path: /var/log/nginx/work-orders-access.log
+
+output.elasticsearch:
+  hosts: http://k8s.aex-sys.net:31575
+  index: "api-logger-calls-%{+yyyy.MM}"
+
+setup.template.enabled: false

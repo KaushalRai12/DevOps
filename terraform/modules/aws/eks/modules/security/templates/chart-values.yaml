@@ -1,0 +1,4 @@
+namespaces:
+%{ for ns in namespaces }
+- ${ns}
+%{ endfor }

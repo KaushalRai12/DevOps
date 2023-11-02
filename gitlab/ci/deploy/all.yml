@@ -1,0 +1,3 @@
+include:
+- '/gitlab/ci/deploy/dev.yml'
+- '/gitlab/ci/deploy/vumatel.yml'

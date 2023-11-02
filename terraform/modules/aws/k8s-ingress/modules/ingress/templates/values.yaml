@@ -1,0 +1,35 @@
+isExternal: ${is_external}
+vpcId: ${vpc_id}
+certificateArn: ${certificate_arn}
+name: ${name}
+sslPolicy: ${ssl_policy}
+routes:
+%{ for route in routes }
+- serviceName: ${route.service_name}
+  targetPort: ${route.target_port}
+  domain: ${route.domain}
+%{ endfor }
+listenPorts:
+%{ for port in listen_ports }
+- protocol: ${port.protocol}
+  port: ${port.port}
+%{ endfor }
+attributes:
+%{ for key, value in lb_attributes }
+- name: ${key}
+  value: ${value}
+%{ endfor }
+userPool:
+  arn: ${user_pool_arn}
+  clientId: ${user_pool_client_id}
+  domain: ${user_pool_domain}
+auth:
+  type: ${auth_type}
+oidc:
+  issuer: ${oidc_issuer}
+  authEndpoint: ${oidc_auth_endpoint}
+  tokenEndpoint: ${oidc_token_endpoint}
+  infoEndpoint: ${oidc_info_endpoint}
+  clientId: ${oidc_client_id}
+  clientSecret: ${oidc_client_secret}
+isDualStack: ${is_dual_stack}

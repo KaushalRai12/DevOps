@@ -1,0 +1,40 @@
+[
+  {
+    "id": "ni_mismatch",
+    "priority": -1,
+    "httpRequest": {
+      "path": "/networks/nodes/.*?/status/refresh",
+      "method": "POST"
+    },
+    "httpResponse": {
+      "statusCode": 405,
+      "headers": {
+        "content-type": ["application/json"],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {"errors": [],"code": 405}
+      }
+    }
+  },
+  {
+    "id": "nms_forwarder",
+    "priority": -2,
+    "httpRequest": {
+      "path": "/.*"
+    },
+    "httpOverrideForwardedRequest": {
+      "requestOverride": {
+        "headers": {
+          "Host": ["stage.nms.dev.vumaex.co.za"]
+        },
+        "secure": true
+      }
+    },
+    "times": {
+      "unlimited": true
+    }
+  }
+]

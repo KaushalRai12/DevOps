@@ -1,0 +1,36 @@
+fullnameOverride: elastic-requestd${suffix}
+nodeGroup: "single"
+replicas: 1
+minimumMasterNodes: 1
+
+esJavaOpts: "-Xmx1g -Xms1g"
+
+resources:
+  requests:
+    cpu: 0.5
+    memory: 1Gi
+  limits:
+    cpu: 2
+    memory: 4Gi
+
+persistence:
+  enabled: true
+
+volumeClaimTemplate:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: ${storage_capacity}
+
+clusterHealthCheckParams: "wait_for_status=yellow&timeout=10s"
+
+service:
+  type: ClusterIP
+
+esConfig:
+  elasticsearch.yml: |
+    xpack.security.enabled: false
+
+nodeSelector:
+  aex/devops: "true"

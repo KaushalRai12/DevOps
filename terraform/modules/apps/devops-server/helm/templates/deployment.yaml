@@ -1,0 +1,69 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .Chart.Name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Chart.Name }}
+  serviceName: {{ .Chart.Name }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Chart.Name }}
+        uuid: "{{ .Values.uuid | default uuidv4 }}"
+    spec:
+      containers:
+      - name: service
+        image: "{{ .Values.image.name }}:{{ .Values.image.tag }}"
+        imagePullPolicy: Always
+        envFrom:
+        - configMapRef:
+            name: {{ .Chart.Name }}
+        env:
+        - name: OTS_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Chart.Name }}
+              key: ots-api-key
+        - name: SMTP_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: {{ .Chart.Name }}
+              key: smtp-password
+
+        volumeMounts:
+        - name: private-key
+          mountPath: "/root/tmp"
+        - name: data
+          mountPath: /var/lib/ansible/data
+          readOnly: false
+        lifecycle:
+          postStart:
+            exec:
+              command:
+              - /bin/bash
+              - -c
+              - /root/post-start.sh
+
+      nodeSelector:
+        aex/devops: "true"
+      imagePullSecrets:
+      - name: gitlab-docker-registry
+      volumes:
+      - name: private-key
+        secret:
+          secretName: devops-server-private-key
+          defaultMode: 0600
+          items:
+          - key: ssh-privatekey
+            path: id_rsa
+  volumeClaimTemplates:
+  - metadata:
+      name: data
+    spec:
+      accessModes:
+      - ReadWriteOnce
+      resources:
+        requests:
+          storage: 256Mi

@@ -1,0 +1,3 @@
+instanceName: ${instance_name}
+ipAddresses: ${ip_addresses}
+subnets: ${subnets}

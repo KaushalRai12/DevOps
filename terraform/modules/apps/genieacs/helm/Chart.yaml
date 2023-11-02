@@ -1,0 +1,8 @@
+apiVersion: v2
+name: genieacs
+description: A Helm chart for GenieACS app
+type: application
+version: 0.1.5
+appVersion: 1.2.8
+maintainers:
+- name: Automation Exchange

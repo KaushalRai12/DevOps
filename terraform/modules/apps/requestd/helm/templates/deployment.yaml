@@ -1,0 +1,67 @@
+{{- $deployName :=  include "deployName" .  }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $deployName }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ $deployName }}
+        uuid: "{{ .Values.uuid | default uuidv4 }}"
+    spec:
+      containers:
+        - name: service
+          image: "{{ .Values.gitlabDomain }}:4567/internal/devops/requestd:{{ .Values.imageTag }}"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 9292
+          envFrom:
+          - configMapRef:
+              name: {{ $deployName }}
+          env:
+            - name: OFFICE365_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: requestd
+                  key: office-365-secret
+            - name: MAX_MIND_LICENSE_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: requestd
+                  key: max-mind-key
+            - name: SENTRY_DSN
+              valueFrom:
+                secretKeyRef:
+                  name: requestd
+                  key: sentry-dsn
+            - name: DATABASE_URL
+              valueFrom:
+                secretKeyRef:
+                  name: requestd
+                  key: db-url
+            - name: REQUESTD_LICENSE
+              valueFrom:
+                secretKeyRef:
+                  name: requestd
+                  key: license
+          volumeMounts:
+          - name: settings-yaml
+            mountPath: /usr/src/app/config/settings.yml
+            subPath: settings.yml
+          lifecycle:
+            postStart:
+              exec:
+                command: [ "/bin/sh", "-c", "mv /usr/src/app/GeoLite2-City.mmdb /usr/src/app/config/" ]
+      nodeSelector:
+        aex/devops: "true"
+      volumes:
+      - name: settings-yaml
+        configMap:
+          name: {{ printf "%s-config" $deployName }}
+      imagePullSecrets:
+        - name: gitlab-docker-registry
+  selector:
+    matchLabels:
+      app: {{ $deployName }}

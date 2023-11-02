@@ -1,0 +1,198 @@
+[
+  {
+    "id": "vx_get_object_all_good",
+    "httpRequest": {
+      "path": "/api/v1/object",
+      "method": "GET",
+      "queryStringParameters": {
+        "q": [
+          "object_number:VT-MBT-(AG|NO|NS|ND|LD|PD|RA|TA|SA|SR)-.{4}"
+        ],
+        "api_key": [
+          "fG7DZicMzvVKxvmr6Prb"
+        ]
+      }
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "data": [
+            {
+              "external_id": null,
+              "object_number": "VT-VX-OB-0003",
+              "street_number": "2",
+              "street": "Kamferhout Read",
+              "apartment_number": "None None",
+              "province": "Gauteng",
+              "postal_code": "1459",
+              "city": "Test City",
+              "manual_provisioning": "No",
+              "active_from": "2022-09-13T16:09:00",
+              "status": "Deliverable",
+              "object_type": "Residential",
+              "object_group": "5FCD70BE-89CB-4BF0-B945-3F78D6097E5E",
+              "note": null,
+              "public_note": "Location_ref-5089258518",
+              "include_in_sdr": true,
+              "latitude": null,
+              "longitude": null,
+              "estimated_ready_for_install_date": null,
+              "build_status": "planned",
+              "homedrop_status": "connected",
+              "building": null,
+              "organization": null,
+              "class_code": null,
+              "survey": null,
+              "fiber_serving_area": "SPK-AG5",
+              "fiber_distribution_area": "VT-SPK-B091",
+              "fiber_distribution_panel": "Sunward Park",
+              "detailed_survey_required": false,
+              "survey_status": "Survey not performed",
+              "vxboss": true,
+              "premise_passed_date": null,
+              "sales_area": null,
+              "assigned_salesperson": null,
+              "property_owner": null,
+              "third_party_agreement": null,
+              "owner": "api",
+              "id": "4595BB0B-1A11-45E1-9566-BBE70E8A4B27",
+              "created": "2022-09-13T16:09:39.725577",
+              "updated": "2023-05-26T09:01:18.595905",
+              "port": "91A9BB57-CEA7-4FE3-9A6E-E2C36C0CC092",
+              "network_operator": "59F6B9AC-4283-47AE-BCB9-F9D2C50A0C60",
+              "homedrop_paid": null,
+              "order_status": "Active",
+              "address_resolution_precision": "N/A",
+              "address_resolution_warning": "N/A",
+              "nbp": "631750cf182eea0aaacaac3c",
+              "customer_premise_fiber": null,
+              "provisioning_status": "retry",
+              "network_status": "down"
+            }
+          ],
+          "pagination": {
+            "page": 1,
+            "per_page": 30,
+            "total": 1
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "vx_update_object_all_good",
+    "httpRequest": {
+      "path": "/api/v1/object",
+      "method": "PUT"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "message": "object successfully updated",
+          "data": {
+            "external_id": null,
+            "object_number": "VT-MBT-AG-0003",
+            "street_number": "2",
+            "street": "Kamferhout Read",
+            "apartment_number": "None None",
+            "province": "Gauteng",
+            "postal_code": "1469",
+            "city": "Test City",
+            "manual_provisioning": "No",
+            "active_from": "2022-09-13T16:09:00.000000",
+            "status": "Deliverable",
+            "object_type": "Residential",
+            "object_group": "5FCD70BE-89CB-4BF0-B945-3F78D6097E5E",
+            "note": null,
+            "public_note": "Location_ref-5089258518",
+            "include_in_sdr": true,
+            "latitude": null,
+            "longitude": null,
+            "estimated_ready_for_install_date": null,
+            "build_status": "planned",
+            "homedrop_status": "connected",
+            "building": null,
+            "organization": null,
+            "class_code": null,
+            "survey": null,
+            "fiber_serving_area": "SPK-AG5",
+            "fiber_distribution_area": "VT-SPK-B091",
+            "fiber_distribution_panel": "Sunward Park",
+            "detailed_survey_required": false,
+            "survey_status": "Survey not performed",
+            "vxboss": true,
+            "premise_passed_date": null,
+            "sales_area": null,
+            "assigned_salesperson": null,
+            "property_owner": null,
+            "third_party_agreement": null,
+            "id": "4595BB0B-1A11-45E1-9566-BBE70E8A4B27",
+            "created": "2022-09-13T16:09:39.725577",
+            "updated": "2023-08-12T21:16:05.819224",
+            "port": "91A9BB57-CEA7-4FE3-9A6E-E2C36C0CC092",
+            "network_operator": "59F6B9AC-4283-47AE-BCB9-F9D2C50A0C60",
+            "homedrop_paid": null,
+            "order_status": "Active",
+            "address_resolution_precision": "N/A",
+            "address_resolution_warning": "N/A",
+            "nbp": "631750cf182eea0aaacaac3c",
+            "customer_premise_fiber": null,
+            "provisioning_status": "retry",
+            "network_status": "down"
+          }
+        }
+      }
+    }
+  },
+  {
+    "id": "vx_get_object_forward_to_vx",
+    "httpRequest": {
+      "path": "/api/v1/object",
+      "method": "GET",
+      "queryStringParameters": {
+        "q": [
+          "object_number:VT-[^\\/]*"
+        ],
+        "api_key": [
+          "fG7DZicMzvVKxvmr6Prb"
+        ]
+      }
+    },
+    "httpOverrideForwardedRequest": {
+      "httpRequest": {
+        "path": "/api/v1/object",
+        "queryStringParameters": {
+          "q": [
+            "object_number:VT-VT-OB-0003"
+          ],
+          "api_key": [
+            "fG7DZicMzvVKxvmr6Prb"
+          ]
+        },
+        "method": "GET",
+        "headers": {
+          "host": "vxapi.sa2.vxfiber.com",
+          "scheme": "HTTPS"
+        }
+      }
+    }
+  }
+]

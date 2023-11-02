@@ -1,0 +1,28 @@
+---
+- name: Create deployment directory
+  file:
+    path: "{{ path_to_app }}"
+    state: directory
+
+- name: Check if compose file exists
+  stat:
+    path: "{{ path_to_app }}/docker-compose.yml"
+  register: compose_data
+
+- name: Run docker compose down 
+  command: docker-compose down
+  args:
+    chdir: "{{ path_to_app }}"
+  register: out
+  when: compose_data.stat.exists
+
+- name: Upload docker compose 
+  template:
+    src: ../templates/docker-compose.j2
+    dest: "{{ path_to_app }}/docker-compose.yml"
+
+- name: Run docker compose up 
+  command: docker-compose up -d
+  args:
+    chdir: "{{ path_to_app }}"
+  register: out

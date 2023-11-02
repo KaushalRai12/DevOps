@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: specification-service
+  namespace: aex-devops
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: specification-service
+rules:
+  - apiGroups: ["", "apps"]
+    resources: ["ingresses"]
+    verbs: ["get", "list", "watch", "create", "update", "patch", "delete"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: specification-service
+subjects:
+  - kind: ServiceAccount
+    name: specification-service
+    namespace: aex-devops
+roleRef:
+  kind: ClusterRole
+  name: specification-service
+  apiGroup: rbac.authorization.k8s.io

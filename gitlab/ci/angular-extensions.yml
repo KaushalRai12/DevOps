@@ -1,0 +1,22 @@
+.npm-registry:
+  image: node:12
+  before_script:
+  - npm config set "@vumaex:registry" "https://$NPM_REGISTRY"
+  - npm config set "//$NPM_REGISTRY:_auth" $NPM_TOKEN
+  - npm install
+
+.build-angular:
+  extends: .npm-registry
+  image: node:12
+  stage: build
+  tags:
+  - aws-k8s
+  rules:
+  - if: '$CI_MERGE_REQUEST_ID != null || $CI_COMMIT_BRANCH =~ "/^(master|dev)$/" || $CI_COMMIT_MESSAGE =~ /.*SONAR!.*/'
+    when: always
+  cache:
+    paths:
+    - node_modules/
+  artifacts:
+    paths:
+    - dist/

@@ -1,0 +1,10 @@
+# Ensures the gitlab runner pod is not moved
+apiVersion: policy/v1beta1
+kind: PodDisruptionBudget
+metadata:
+  name: gitlab-runner-pdb
+spec:
+  minAvailable: 1
+  selector:
+    matchLabels:
+      app: gitlab-runner-kubernetes

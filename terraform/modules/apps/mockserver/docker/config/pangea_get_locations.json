@@ -1,0 +1,166 @@
+[
+  {
+    "id": "pangea_get_vc_location_by_premise_id",
+    "httpRequest": {
+      "path": "/locations/location/",
+      "queryStringParameters": {
+        "premise_ref_isp": [
+          "44320.{5}"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "count": 1,
+          "next": null,
+          "previous": null,
+          "results": [
+            {
+              "latitude": "-32.95078932000000000000",
+              "longitude": "27.70544150000000000000",
+              "network_readiness_status": "5_Network Ready",
+              "id": "a410D000000lIfAQAU",
+              "address": "400 Stand No.,Mdantsane-R,Mdantsane",
+              "premisesid": "400 Stand No.,Mdantsane-R,Mdantsane",
+              "mdu_unitno": null,
+              "mdu_name": "Aggregation Zones MDU name testing",
+              "estate_name": null,
+              "related_mdu": null,
+              "suburb": "Mdantsane-R",
+              "city": "Mdantsane",
+              "province": "Eastern Cape",
+              "postal_code": "5219",
+              "country": "South Africa",
+              "external_ref": "a410D000000lIfAQAU",
+              "buildmethodology": "Aerial",
+              "networktype": "GPON",
+              "premise_ref_isp": "4432027514",
+              "street_name": "Stand No.",
+              "street_number": "400",
+              "street_1": null,
+              "street_2": null,
+              "vuma_region": null,
+              "date_created": "2023-06-01T13:24:18+00:00",
+              "date_modified": "2023-06-01T13:24:18+00:00",
+              "network_identifier": null,
+              "scheduling_cell": null,
+              "catalog_id": null,
+              "pole": false,
+              "network_ag": "MDR-AG04",
+              "network_block": "VR-MDR-AG04-B33",
+              "fibrehoods": "Mdantsane R",
+              "product_types": [
+                "VR"
+              ],
+              "block_aggregation_zone_2": "MDR-AG04",
+              "block_aggregationzone_aggregationpoint_cosgroup": null,
+              "block_aggregationzone_aggregationpoint_objectgrou_479": null,
+              "block_aggregationzone_aggregationpoint_relatedobj_480": null,
+              "date_of_latest_online_order": null,
+              "total_number_of_installation_bookings": null,
+              "total_number_of_installation_bookings_onhold": null,
+              "number_of_installation_bookings_without_service": null,
+              "total_number_of_completed_installation_bookings": null,
+              "fibrehood_network_type": null,
+              "block_openforselfscheduling": null,
+              "cm_id": null
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "pangea_get_vr_location_by_premise_id",
+    "httpRequest": {
+      "path": "/locations/location/",
+      "queryStringParameters": {
+        "premise_ref_isp": [
+          "49628.{5"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "count": 1,
+          "next": null,
+          "previous": null,
+          "results": [
+            {
+              "latitude": "-29.06705900000000000000",
+              "longitude": "26.20575600000000000000",
+              "network_readiness_status": "5_Network Ready",
+              "id": "a410D000000n2ULQAY",
+              "address": "0 Bloemendal Street,Olympus Range Phase 1,Unit 22,Shellyvale,Bloemfontein",
+              "premisesid": "0 Bloemendal Street,Olympus Range Phase 1,Unit 22,Shellyvale,Bloemfontein",
+              "mdu_unitno": "Unit 22",
+              "mdu_name": "Olympus Range Phase 1",
+              "estate_name": null,
+              "related_mdu": null,
+              "suburb": "Shellyvale",
+              "city": "Bloemfontein",
+              "province": "Free state",
+              "postal_code": "9301",
+              "country": "South Africa",
+              "external_ref": "a410D000000n2ULQAY",
+              "buildmethodology": null,
+              "networktype": "GPON",
+              "premise_ref_isp": "4962876214",
+              "street_name": "Bloemendal Street",
+              "street_number": "0",
+              "street_1": null,
+              "street_2": null,
+              "vuma_region": null,
+              "date_created": "2023-08-22T14:37:52+00:00",
+              "date_modified": "2023-08-22T14:37:52+00:00",
+              "network_identifier": null,
+              "scheduling_cell": null,
+              "catalog_id": null,
+              "pole": false,
+              "network_ag": "HLB-AG1",
+              "network_block": "VV-HB-B001",
+              "fibrehoods": "Hillsboro",
+              "product_types": [
+                "VC"
+              ],
+              "block_aggregation_zone_2": "HLB-AG1",
+              "block_aggregationzone_aggregationpoint_cosgroup": null,
+              "block_aggregationzone_aggregationpoint_objectgrou_479": null,
+              "block_aggregationzone_aggregationpoint_relatedobj_480": null,
+              "date_of_latest_online_order": null,
+              "total_number_of_installation_bookings": null,
+              "total_number_of_installation_bookings_onhold": null,
+              "number_of_installation_bookings_without_service": null,
+              "total_number_of_completed_installation_bookings": null,
+              "fibrehood_network_type": null,
+              "block_openforselfscheduling": null,
+              "cm_id": null
+            }
+          ]
+        }
+      }
+    }
+  }
+]

@@ -1,0 +1,11 @@
+include:
+- '/gitlab/ci/deploy/common.yml'
+
+dev-stage-deploy:
+  extends: .dev-stage-deploy
+
+dev-preprod-deploy:
+  extends: .dev-preprod-deploy
+
+dev-uat-deploy:
+  extends: .dev-uat-deploy

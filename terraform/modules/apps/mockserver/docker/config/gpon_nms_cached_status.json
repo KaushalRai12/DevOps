@@ -1,0 +1,191 @@
+[
+  {
+    "id": "gpon_all_good_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)000.{5}?/status",
+      "queryStringParameters": {
+        "count": ["1"]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": ["application/json"],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {"list":[{"alerts": [],"alarms": [],"oper_status": "Up","admin_status": "Up","status": "Up","pop_status": "Up","location_ref": "0-1-1-2","pon_port": "0-1-1","model": "040H","object_status": null,"lease_time": null,"cpe_model": null,"cpe_port_speed": null,"cpe_plugged_into": null,"fibre_port_speed": null,"plugged_in": null,"since": "2023-06-02T22:13:12+02:00","last_uptime": "2023-06-02T20:13:11+02:00","last_downtime": "2023-06-02T18:04:41+02:00","ont_distance": 2292000,"rx_light_level": -29.21,"rx_low": -30.0,"rx_high": -10.0,"rx_status": "Normal","sfp_light_level": -25.09,"sfp_low": -30.0,"sfp_high": -10.0,"sfp_status": "Normal","tx_light_level": 2.0,"tx_low": 1.0,"tx_high": 3.0,"tx_status": "Normal","sfp_rx_light_level": null,"sfp_rx_low": -30.0,"sfp_rx_high": -10.0,"sfp_rx_status": "Unknown","name": "0-1-1-2","olt": "VT-SANDOWN","olt_name": "VT-SANDOWN","type": "GponOnuPhysical","reference": "48575443373E9496","vendor": "Huawei","network_id": 2,"network_type": "GPON","operator_id": 1,"added": "2023-06-03T09:06:27+02:00","switch": null}],"page":1,"count":1,"total":{"value":88,"relation":"eq"}}
+      }
+    }
+  },
+  {
+    "id": "gpon_power_down_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)100.{5}?/status",
+      "queryStringParameters": {
+        "count": ["1"]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": ["application/json"],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {"list":[{"alerts": ["Possible Power Down"],"alarms": ["Dying Gasp"],"oper_status": "Down","admin_status": "Up","status": "Down","pop_status": "Up","location_ref": "0-5-8-25","pon_port": "0-5-8","model": "EG8040H","object_status": null,"lease_time": null,"cpe_model": null,"cpe_port_speed": null,"cpe_plugged_into": null,"fibre_port_speed": null,"plugged_in": null,"since": null,"last_uptime": "2023-05-21T06:35:16+02:00","last_downtime": "2023-05-21T16:01:31+02:00","ont_distance": null,"rx_light_level": null,"rx_low": -30.0,"rx_high": -10.0,"rx_status": "Unknown","sfp_light_level": null,"sfp_low": -30.0,"sfp_high": -10.0,"sfp_status": "Unknown","tx_light_level": null,"tx_low": 1.0,"tx_high": 3.0,"tx_status": "Unknown","sfp_rx_light_level": null,"sfp_rx_low": -30.0,"sfp_rx_high": -10.0,"sfp_rx_status": "Unknown","name": "0-5-8-25","olt": "VT-DISCOVERY","olt_name": "Discovery","type": "GponOnuPhysical","reference": "4857544302E2569D","vendor": "Huawei","network_id": 2,"network_type": "GPON","operator_id": 1,"added": "2023-06-05T21:38:03+02:00","switch": null}],"page":1,"count":1,"total":{"value":88,"relation":"eq"}}
+      }
+    }
+  },
+  {
+    "id": "gpon_link_down_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)200.{5}?/status",
+      "queryStringParameters": {
+        "count": ["1"]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": ["application/json"],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {"list":[{"alerts": ["Possible Fibre Fault"],"alarms": ["Loss of Signal"],"oper_status": "Down","admin_status": "Up","status": "Down","pop_status": "Up","location_ref": "0-6-6-2","pon_port": "0-6-6","model": "040H","object_status": null,"lease_time": null,"cpe_model": null,"cpe_port_speed": null,"cpe_plugged_into": null,"fibre_port_speed": null,"plugged_in": null,"since": null,"last_uptime": null,"last_downtime": null,"ont_distance": null,"rx_light_level": null,"rx_low": -30.0,"rx_high": -10.0,"rx_status": "Unknown","sfp_light_level": null,"sfp_low": -30.0,"sfp_high": -10.0,"sfp_status": "Unknown","tx_light_level": null,"tx_low": 1.0,"tx_high": 3.0,"tx_status": "Unknown","sfp_rx_light_level": null,"sfp_rx_low": -30.0,"sfp_rx_high": -10.0,"sfp_rx_status": "Unknown","name": "0-6-6-2","olt": "VT-NORTHRIDING","olt_name": "VT-NORTHRIDING","type": "GponOnuPhysical","reference": "4857544302DF8C9D","vendor": "Huawei","network_id": 2,"network_type": "GPON","operator_id": 1,"added": "2023-06-05T21:35:21+02:00","switch": null}],"page":1,"count":1,"total":{"value":88,"relation":"eq"}}
+      }
+    }
+  },
+  {
+    "id": "gpon_rx_light_levels_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)300.{5}?/status",
+      "queryStringParameters": {
+        "count": ["1"]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": ["application/json"],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {"list":[{"alerts": ["RX Light Levels Abnormal"],"alarms": [],"oper_status": "Up","admin_status": "Up","status": "Up","pop_status": "Up","location_ref": "1-12-5-19","pon_port": "1-12-5","model": "zhone-2424","object_status": null,"lease_time": null,"cpe_model": null,"cpe_port_speed": null,"cpe_plugged_into": null,"fibre_port_speed": null,"plugged_in": null,"since": "2023-05-20T05:54:05+02:00","last_uptime": null,"last_downtime": null,"ont_distance": 2891000,"rx_light_level": -4.9,"rx_low": -30.0,"rx_high": -10.0,"rx_status": "Abnormal","sfp_light_level": -2.6,"sfp_low": -30.0,"sfp_high": -10.0,"sfp_status": "Abnormal","tx_light_level": null,"tx_low": 1.0,"tx_high": 3.0,"tx_status": "Unknown","sfp_rx_light_level": null,"sfp_rx_low": -30.0,"sfp_rx_high": -10.0,"sfp_rx_status": "Unknown","name": "1-12-5-19","olt": "FH-SAVOY","olt_name": "Savoy","type": "GponOnuPhysical","reference": "ZNTS03D19799","vendor": "Zhone","network_id": 1,"network_type": "GPON","operator_id": 1,"added": "2023-06-11T22:38:57+02:00","switch": null}],"page":1,"count":1,"total":{"value":88,"relation":"eq"}}
+      }
+    }
+  },
+  {
+    "id": "gpon_sfp_light_levels_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)400.{5}?/status",
+      "queryStringParameters": {
+        "count": ["1"]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": ["application/json"],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {"list":[{"alerts": ["SFP Light Levels Abnormal"],"alarms": [],"oper_status": "Up","admin_status": "Up","status": "Up","pop_status": "Up","location_ref": "1-12-5-19","pon_port": "1-12-5","model": "zhone-2424","object_status": null,"lease_time": null,"cpe_model": null,"cpe_port_speed": null,"cpe_plugged_into": null,"fibre_port_speed": null,"plugged_in": null,"since": "2023-05-20T05:54:05+02:00","last_uptime": null,"last_downtime": null,"ont_distance": 2891000,"rx_light_level": -4.9,"rx_low": -30.0,"rx_high": -10.0,"rx_status": "Abnormal","sfp_light_level": -2.6,"sfp_low": -30.0,"sfp_high": -10.0,"sfp_status": "Abnormal","tx_light_level": null,"tx_low": 1.0,"tx_high": 3.0,"tx_status": "Unknown","sfp_rx_light_level": null,"sfp_rx_low": -30.0,"sfp_rx_high": -10.0,"sfp_rx_status": "Unknown","name": "1-12-5-19","olt": "FH-SAVOY","olt_name": "Savoy","type": "GponOnuPhysical","reference": "ZNTS03D19799","vendor": "Zhone","network_id": 1,"network_type": "GPON","operator_id": 1,"added": "2023-06-11T22:38:57+02:00","switch": null}],"page":1,"count":1,"total":{"value":88,"relation":"eq"}}
+      }
+    }
+  },
+  {
+    "id": "gpon_tx_light_levels_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)500.{5}?/status",
+      "queryStringParameters": {
+        "count": ["1"]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": ["application/json"],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {"list":[{"alerts": ["TX Light Levels Abnormal"],"alarms": [],"oper_status": "Up","admin_status": "Up","status": "Up","pop_status": "Up","location_ref": "0-1-0-1","pon_port": "0-1-0","model": "2426A","object_status": null,"lease_time": null,"cpe_model": null,"cpe_port_speed": null,"cpe_plugged_into": null,"fibre_port_speed": null,"plugged_in": null,"since": "2023-06-11T20:05:16+02:00","last_uptime": "2023-06-11T18:05:15+02:00","last_downtime": "2023-06-11T18:02:53+02:00","ont_distance": 4280000,"rx_light_level": -17.56,"rx_low": -29.0,"rx_high": -7.0,"rx_status": "Normal","sfp_light_level": -20.37,"sfp_low": -29.0,"sfp_high": -7.0,"sfp_status": "Normal","tx_light_level": 3.03,"tx_low": 1.0,"tx_high": 3.0,"tx_status": "Abnormal","sfp_rx_light_level": null,"sfp_rx_low": -30.0,"sfp_rx_high": -10.0,"sfp_rx_status": "Unknown","name": "0-1-0-1","olt": "VT-BLUBIRD","olt_name": "VT-BLUBIRD","type": "GponOnuPhysical","reference": "ZNTS035C7D13","vendor": "Huawei","network_id": 2,"network_type": "GPON","operator_id": 1,"added": "2023-06-11T22:42:20+02:00","switch": null}],"page":1,"count":1,"total":{"value":88,"relation":"eq"}}
+      }
+    }
+  },
+  {
+    "id": "gpon_inactive_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)600.{5}?/status",
+      "queryStringParameters": {
+        "count": ["1"]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": ["application/json"],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {"list":[{"alerts": ["Inactive"],"alarms": ["Inactive"],"oper_status": "Down","admin_status": "Up","status": "Down","pop_status": "Up","location_ref": "1-9-7-12","pon_port": "1-9-7","model": "zhone-2424","object_status": null,"lease_time": null,"cpe_model": null,"cpe_port_speed": null,"cpe_plugged_into": null,"fibre_port_speed": null,"plugged_in": null,"since": "2023-06-08T08:16:20+02:00","last_uptime": null,"last_downtime": null,"ont_distance": null,"rx_light_level": null,"rx_low": -30.0,"rx_high": -10.0,"rx_status": "Unknown","sfp_light_level": null,"sfp_low": -30.0,"sfp_high": -10.0,"sfp_status": "Unknown","tx_light_level": null,"tx_low": 1.0,"tx_high": 3.0,"tx_status": "Unknown","sfp_rx_light_level": null,"sfp_rx_low": -30.0,"sfp_rx_high": -10.0,"sfp_rx_status": "Unknown","name": "1-9-7-12","olt": "FH-BLUBIRD (AIIWE-KERNICK)","olt_name": "BluBird","type": "GponOnuPhysical","reference": "ZNTS0366524D","vendor": "Zhone","network_id": 1,"network_type": "GPON","operator_id": 1,"added": "2023-06-11T22:54:06+02:00","switch": null}],"page":1,"count":1,"total":{"value":88,"relation":"eq"}}
+      }
+    }
+  },
+  {
+    "id": "gpon_possible_conflict_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)700.{5}?/status",
+      "queryStringParameters": {
+        "count": ["1"]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": ["application/json"],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {"list":[{"alerts": ["Possible Conflict"],"alarms": ["Inactive"],"oper_status": "Down","admin_status": "Up","status": "Down","pop_status": "up","model": "zhone-2424","object_status": null,"lease_time": null,"cpe_model": null,"cpe_port_speed": null,"cpe_plugged_into": null,"fibre_port_speed": null,"plugged_in": null,"since": "2022-11-21T12:39:27+02:00","last_uptime": null,"last_downtime": null,"ont_distance": null,"rx_light_level": null,"rx_low": -30,"rx_high": -10,"rx_status": "Unknown","sfp_light_level": null,"sfp_low": -30,"sfp_high": -10,"sfp_status": "Unknown","tx_light_level": null,"tx_low": 1,"tx_high": 3,"tx_status": "Unknown","sfp_rx_light_level": null,"sfp_rx_low": -30,"sfp_rx_high": -10,"sfp_rx_status": "Unknown","name": "1-12-4-38","olt": "FH-BLUBIRD (AIIWE-KERNICK)","olt_name": "BluBird","type": "GponOnuPhysical","reference": "ZNTS03A817F2","vendor": "Zhone","network_id": 1,"network_type": "GPON","operator_id": 1,"added": "2022-11-23T15:07:58+02:00","switch": null,"location_ref": "1-12-4-38","pon_port": "1-12-4"}],"page":1,"count":1,"total":{"value":88,"relation":"eq"}}
+      }
+    }
+  },
+  {
+    "id": "gpon_startup_failure_cached",
+    "httpRequest": {
+      "path": "/networks/nodes/(48575443|ZNTS|CXNK)800.{5}?/status",
+      "queryStringParameters": {
+        "count": ["1"]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "headers": {
+        "content-type": ["application/json"],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {"list":[{"alerts": ["Start Up Failure"],"alarms": ["Inactive","Start Up Failure"],"oper_status": "Down","admin_status": "Up","status": "Down","pop_status": "Up","location_ref": "1-12-3-37","pon_port": "1-12-3","model": "zhone-2424","object_status": null,"lease_time": null,"cpe_model": null,"cpe_port_speed": null,"cpe_plugged_into": null,"fibre_port_speed": null,"plugged_in": null,"since": "2023-06-11T22:57:34+02:00","last_uptime": null,"last_downtime": null,"ont_distance": null,"rx_light_level": null,"rx_low": -30.0,"rx_high": -10.0,"rx_status": "Unknown","sfp_light_level": null,"sfp_low": -30.0,"sfp_high": -10.0,"sfp_status": "Unknown","tx_light_level": null,"tx_low": 1.0,"tx_high": 3.0,"tx_status": "Unknown","sfp_rx_light_level": null,"sfp_rx_low": -30.0,"sfp_rx_high": -10.0,"sfp_rx_status": "Unknown","name": "1-12-3-37","olt": "FH-BLUBIRD (AIIWE-KERNICK)","olt_name": "BluBird","type": "GponOnuPhysical","reference": "ZNTS03D192EB","vendor": "Zhone","network_id": 1,"network_type": "GPON","operator_id": 1,"added": "2023-06-11T22:57:34+02:00","switch": null}],"page":1,"count":1,"total":{"value":88,"relation":"eq"}}
+      }
+    }
+  }
+]

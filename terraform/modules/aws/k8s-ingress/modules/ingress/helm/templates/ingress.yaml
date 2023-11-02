@@ -1,0 +1,50 @@
+kind: Ingress
+apiVersion: networking.k8s.io/v1
+metadata:
+  annotations:
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/load-balancer-name: {{ .Values.name }}
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/listen-ports: '[{{- include "listenPorts" . | trimSuffix "," }}]'
+    alb.ingress.kubernetes.io/healthcheck-interval-seconds: "60"
+    alb.ingress.kubernetes.io/load-balancer-attributes: '{{- include "loadBalancerAttributes" . | trimSuffix "," }}'
+    {{- if .Values.isExternal }}
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/certificate-arn: {{ .Values.certificateArn }}
+    alb.ingress.kubernetes.io/ssl-redirect: "443"
+    alb.ingress.kubernetes.io/ssl-policy: {{ .Values.sslPolicy }}
+    alb.ingress.kubernetes.io/tags:	{{ printf "aex/waf/protected=%s" .Values.vpcId }}
+    {{- else }}
+    alb.ingress.kubernetes.io/scheme: internal
+    {{- end }}
+    {{- if .Values.isDualStack }}
+    alb.ingress.kubernetes.io/ip-address-type: dualstack
+    {{- end }}
+    {{- if and .Values.auth.type (ne .Values.auth.type "none") }}
+    alb.ingress.kubernetes.io/auth-type: {{ .Values.auth.type }}
+    alb.ingress.kubernetes.io/auth-scope: openid
+    alb.ingress.kubernetes.io/auth-session-timeout: '86400'
+    alb.ingress.kubernetes.io/auth-session-cookie: AWSELBAuthSessionCookie
+    alb.ingress.kubernetes.io/auth-on-unauthenticated-request: authenticate
+    {{- if eq .Values.auth.type "cognito" }}
+    alb.ingress.kubernetes.io/auth-idp-cognito: '{"UserPoolArn": "{{ .Values.userPool.arn }}","UserPoolClientId":"{{ .Values.userPool.clientId }}","UserPoolDomain":"{{ .Values.userPool.domain }}"}'
+    {{- else }}
+    alb.ingress.kubernetes.io/auth-idp-oidc: '{"issuer": "{{ .Values.oidc.issuer }}","authorizationEndpoint":"{{ .Values.oidc.authEndpoint }}","tokenEndpoint":"{{ .Values.oidc.tokenEndpoint }}","userInfoEndpoint":"{{ .Values.oidc.infoEndpoint }}","secretName":"{{- include "secretName" . }}"}'
+    {{- end }}
+    {{- end }}
+  name: {{ .Values.name }}
+
+spec:
+  rules:
+  {{- range $route := .Values.routes }}
+  - host: {{ $route.domain }}
+    http:
+      paths:
+      - path: "/"
+        pathType: Prefix
+        backend:
+          service:
+            name: {{ $route.serviceName }}
+            port:
+              number: {{ $route.targetPort | default 80 }}
+  {{- end }}

@@ -1,0 +1,283 @@
+{
+	"index_patterns": [
+		"api-logger-calls-*"
+	],
+	"settings": {
+		"analysis": {
+			"analyzer": {
+				"english_exact": {
+					"filter": [
+						"lowercase"
+					],
+					"tokenizer": "standard"
+				}
+			}
+		},
+		"number_of_shards": "1",
+		"number_of_replicas": "0",
+		"lifecycle": {
+			"name": "delete-old-logger-calls"
+		}
+	},
+	"mappings": {
+		"properties": {
+			"duration": {
+				"scaling_factor": 1000,
+				"type": "scaled_float"
+			},
+			"request": {
+				"properties": {
+					"identifier": {
+						"type": "text",
+						"fields": {
+							"keyword": {
+								"ignore_above": 256,
+								"type": "keyword"
+							}
+						}
+					},
+					"headers": {
+						"type": "text",
+						"fields": {
+							"keyword": {
+								"ignore_above": 256,
+								"type": "keyword"
+							}
+						}
+					},
+					"method": {
+						"ignore_above": 256,
+						"type": "keyword"
+					},
+					"scheme": {
+						"ignore_above": 256,
+						"type": "keyword"
+					},
+					"resource": {
+						"type": "text",
+						"fields": {
+							"keyword": {
+								"ignore_above": 256,
+								"type": "keyword"
+							}
+						}
+					},
+					"query": {
+						"type": "text",
+						"fields": {
+							"keyword": {
+								"ignore_above": 256,
+								"type": "keyword"
+							}
+						}
+					},
+					"http_version": {
+						"ignore_above": 256,
+						"type": "keyword"
+					},
+					"body": {
+						"type": "text",
+						"fields": {
+							"exact": {
+								"type": "text"
+							}
+						}
+					},
+					"url": {
+						"type": "text",
+						"fields": {
+							"keyword": {
+								"ignore_above": 256,
+								"type": "keyword"
+							}
+						}
+					},
+					"path": {
+						"ignore_above": 256,
+						"type": "keyword"
+					},
+					"query_hash": {
+						"dynamic": true,
+						"type": "object"
+					},
+					"fragment": {
+						"ignore_above": 256,
+						"type": "keyword"
+					},
+					"size": {
+						"type": "integer"
+					},
+					"port": {
+						"type": "integer"
+					},
+					"host": {
+						"ignore_above": 256,
+						"type": "keyword"
+					}
+				}
+			},
+			"site": {
+				"ignore_above": 256,
+				"type": "keyword"
+			},
+			"@timestamp": {
+				"format": "strict_date_optional_time||yyyy-MM-dd HH:mm:ss Z||epoch_millis",
+				"type": "date"
+			},
+			"delay": {
+				"scaling_factor": 1000,
+				"type": "scaled_float"
+			},
+			"finished_at": {
+				"format": "strict_date_optional_time||yyyy-MM-dd HH:mm:ss Z||epoch_millis",
+				"type": "date"
+			},
+			"response": {
+				"properties": {
+					"headers": {
+						"type": "text",
+						"fields": {
+							"keyword": {
+								"ignore_above": 256,
+								"type": "keyword"
+							}
+						}
+					},
+					"code": {
+						"type": "integer"
+					},
+					"size": {
+						"type": "integer"
+					},
+					"body": {
+						"type": "text",
+						"fields": {
+							"exact": {
+								"type": "text"
+							}
+						}
+					},
+					"status": {
+						"ignore_above": 256,
+						"type": "keyword"
+					}
+				}
+			},
+			"forwarder": {
+				"scaling_factor": 1000,
+				"type": "scaled_float"
+			},
+			"started_at": {
+				"format": "strict_date_optional_time||yyyy-MM-dd HH:mm:ss Z||epoch_millis",
+				"type": "date"
+			},
+			"source": {
+				"ignore_above": 256,
+				"type": "keyword"
+			},
+			"user": {
+				"properties": {
+					"identifier": {
+						"ignore_above": 256,
+						"type": "keyword"
+					},
+					"user_id": {
+						"type": "integer"
+					}
+				}
+			},
+			"user_agent": {
+				"properties": {
+					"os": {
+						"properties": {
+							"name": {
+								"type": "text",
+								"fields": {
+									"keyword": {
+										"ignore_above": 256,
+										"type": "keyword"
+									}
+								}
+							},
+							"version": {
+								"ignore_above": 256,
+								"type": "keyword"
+							},
+							"full": {
+								"type": "text",
+								"fields": {
+									"exact": {
+										"type": "text"
+									}
+								}
+							}
+						}
+					},
+					"name": {
+						"type": "text",
+						"fields": {
+							"keyword": {
+								"ignore_above": 256,
+								"type": "keyword"
+							}
+						}
+					},
+					"ip_address": {
+						"type": "text",
+						"fields": {
+							"keyword": {
+								"ignore_above": 256,
+								"type": "keyword"
+							}
+						}
+					},
+					"device": {
+						"properties": {
+							"name": {
+								"type": "text",
+								"fields": {
+									"keyword": {
+										"ignore_above": 256,
+										"type": "keyword"
+									}
+								}
+							},
+							"version": {
+								"ignore_above": 256,
+								"type": "keyword"
+							},
+							"full": {
+								"type": "text",
+								"fields": {
+									"exact": {
+										"type": "text"
+									}
+								}
+							}
+						}
+					},
+					"platform": {
+						"type": "text",
+						"fields": {
+							"keyword": {
+								"ignore_above": 256,
+								"type": "keyword"
+							}
+						}
+					},
+					"full": {
+						"type": "text",
+						"fields": {
+							"exact": {
+								"type": "text"
+							}
+						}
+					}
+				}
+			}
+		}
+	},
+	"aliases": {
+		"api-logger-calls": { }
+	}
+}

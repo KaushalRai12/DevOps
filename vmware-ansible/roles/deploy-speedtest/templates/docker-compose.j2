@@ -1,0 +1,18 @@
+version: "3.3"
+services:
+  speedtest:
+    image: gitlab.vumaex.net:4567/fnms/open-speed-test:v20230502.01
+    ports:
+      - '127.0.0.1:3000:3000'
+    restart: always
+  pre-redirect:
+    image: gitlab.vumaex.net:4567/containers/pre-redirect:v20230213.05
+    ports:
+      - '127.0.0.1:9292:9292'
+    restart: always    
+    environment:
+      APP_ENV: production
+      APP_ROOT: ./
+      WEB_CONCURRENCY: 1
+      MAX_THREADS: 8 
+      REGION: "{{ container_region }}"

@@ -1,0 +1,6 @@
+kind: CronJob
+schedule: "0 2 * * *"
+nodeSelector:
+  aex/devops: "true"
+successfulJobsHistoryLimit: 1
+failedJobsHistoryLimit: 1

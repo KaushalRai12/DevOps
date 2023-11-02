@@ -1,0 +1,2228 @@
+{
+    "ResourceRecordSets": [
+        {
+            "Name": "aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "154.72.6.221"
+                }
+            ]
+        },
+        {
+            "Name": "aex.co.za.",
+            "Type": "MX",
+            "TTL": 360,
+            "ResourceRecords": [
+                {
+                    "Value": "0 aex-co-za.mail.protection.outlook.com."
+                }
+            ]
+        },
+        {
+            "Name": "aex.co.za.",
+            "Type": "NS",
+            "TTL": 172800,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-170.awsdns-21.com."
+                },
+                {
+                    "Value": "ns-1545.awsdns-01.co.uk."
+                },
+                {
+                    "Value": "ns-996.awsdns-60.net."
+                },
+                {
+                    "Value": "ns-1442.awsdns-52.org."
+                }
+            ]
+        },
+        {
+            "Name": "aex.co.za.",
+            "Type": "SOA",
+            "TTL": 900,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-170.awsdns-21.com. awsdns-hostmaster.amazon.com. 1 7200 900 1209600 86400"
+                }
+            ]
+        },
+        {
+            "Name": "aex.co.za.",
+            "Type": "TXT",
+            "TTL": 360,
+            "ResourceRecords": [
+                {
+                    "Value": "\"v=spf1 include:spf.protection.outlook.com -all\""
+                },
+                {
+                    "Value": "\"MS=ms73336108\""
+                },
+                {
+                    "Value": "\"google-site-verification=58eh9UQZ1OWj1xGaweSFMaW4OJNURn6hDa7D2_YsSs8\""
+                },
+                {
+                    "Value": "\"MS=ms11683918\""
+                }
+            ]
+        },
+        {
+            "Name": "_acme-challenge.aex.co.za.",
+            "Type": "TXT",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "\"XGqv2yz0EhEVNAwT9H8grNRRWO8tPVw4xjP3va-3aqI\""
+                }
+            ]
+        },
+        {
+            "Name": "_amazonses.aex.co.za.",
+            "Type": "TXT",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "\"ZuwLAITBv1kQSryBaEOKs+iDM250TDMPkDzMlROaqzg=\""
+                }
+            ]
+        },
+        {
+            "Name": "5ujjirwbgfzojxejy5mzzby2wqzzezz2._domainkey.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "5ujjirwbgfzojxejy5mzzby2wqzzezz2.dkim.amazonses.com"
+                }
+            ]
+        },
+        {
+            "Name": "5zyvl66e2t5jgfvooubz73avlgsgyq2q._domainkey.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "5zyvl66e2t5jgfvooubz73avlgsgyq2q.dkim.amazonses.com"
+                }
+            ]
+        },
+        {
+            "Name": "6zkeplkjmt2vlx4x5cu6g5kadnvh4hup._domainkey.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "6zkeplkjmt2vlx4x5cu6g5kadnvh4hup.dkim.af-south-1.amazonses.com"
+                }
+            ]
+        },
+        {
+            "Name": "fwfyhsznaelasbdvsxyphyorbqq7meoo._domainkey.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "fwfyhsznaelasbdvsxyphyorbqq7meoo.dkim.af-south-1.amazonses.com"
+                }
+            ]
+        },
+        {
+            "Name": "jtf757nmjm43cvscd2bqzqmr2bnxmr5n._domainkey.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "jtf757nmjm43cvscd2bqzqmr2bnxmr5n.dkim.amazonses.com"
+                }
+            ]
+        },
+        {
+            "Name": "u73iv6txvqooxrcixxvgv344e66txkvy._domainkey.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "u73iv6txvqooxrcixxvgv344e66txkvy.dkim.amazonses.com"
+                }
+            ]
+        },
+        {
+            "Name": "vzf7x24tm5qduqn6tg6hswgvocnou4gj._domainkey.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "vzf7x24tm5qduqn6tg6hswgvocnou4gj.dkim.af-south-1.amazonses.com"
+                }
+            ]
+        },
+        {
+            "Name": "w33yzob4hmcunqo5lskvveb4w6whyokb._domainkey.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "w33yzob4hmcunqo5lskvveb4w6whyokb.dkim.amazonses.com"
+                }
+            ]
+        },
+        {
+            "Name": "yt4tugtxuamppma22f6lobl632klkx7n._domainkey.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "yt4tugtxuamppma22f6lobl632klkx7n.dkim.amazonses.com"
+                }
+            ]
+        },
+        {
+            "Name": "_autodiscover._tcp.aex.co.za.",
+            "Type": "SRV",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "0 0 443 autodiscover.altostratus.co."
+                }
+            ]
+        },
+        {
+            "Name": "accesspoint.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "accesspoint.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "stats.accesspoint.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.144"
+                }
+            ]
+        },
+        {
+            "Name": "admin.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "admin.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "app.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "app.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "evotel.app.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "stats.app.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.144"
+                }
+            ]
+        },
+        {
+            "Name": "autodiscover.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "autodiscover.outlook.com."
+                }
+            ]
+        },
+        {
+            "Name": "boleng.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "boleng.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "cadvisor.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "client-interface.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "client-interface.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "_e6a02219f1343c1593a497af0fa1dd0e.dev.client-interface.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "_0f34dbe786888b17eaab3432293c9fc2.chvvfdvqrj.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "evotel.client-interface.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "metrowatt.client-interface.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "mockfno.client-interface.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "netninenine.client-interface.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "stats.client-interface.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.144"
+                }
+            ]
+        },
+        {
+            "Name": "zoomfibre.client-interface.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "api.client-prepaid.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "vumatel-prod-svc-415584689.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_4ccc489200e299d73f481b5ee814fafb.api.client-prepaid.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_762a1a63ad1b3c1e527792553190f62b.snfqtctrdh.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "client.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "cpe.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "cpe.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "acs.stage.cwmp.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "dbredux.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "preprod.api.client-prepaid.dev.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "dev-svc-preprod-1128080515.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_d833c5f141e5d851e3f7f4ebfedb7442.preprod.api.client-prepaid.dev.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_3f5f2ef596cc952244f7e22d9c38f8e2.dsrmygwdhx.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "preprod.vumatel.dev.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "dev-svc-preprod-1128080515.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_f326c6708edbc669c6c48be62a87169b.preprod.vumatel.dev.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_6a537e449e4fcf4a35b8ec170eef9d4d.dsrmygwdhx.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "dna.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "events.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "vumatel.events.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "vumatel-prod-svc-415584689.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_9bb634ac49a804cec3b0d6bdd0e4ed7d.vumatel.events.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_61672b1cdb988adb67853bd8008a03c3.snfqtctrdh.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "evotel-isp.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "evotel-isp.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "client.evotel-isp.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "evotel.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "evotel.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "fno-frontend.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "154.119.253.238"
+                }
+            ]
+        },
+        {
+            "Name": "fno-frontend.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "fno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "154.119.253.238"
+                }
+            ]
+        },
+        {
+            "Name": "fno.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "dbredux.fno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "dev.fno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "evotel.fno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "linklayer.fno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "openfibre.fno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "preprod.fno.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "dev-svc-preprod-1128080515.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_938d2579492a66d2183169b6c06145b2.preprod.fno.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_c548497b452d60d7a758170ac63395bb.rdnyqppgxp.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "public.fno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "stats.fno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.144"
+                }
+            ]
+        },
+        {
+            "Name": "vumatel.fno.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "vumatel-prod-svc-415584689.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "zoomfibre.fno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "frontend.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "154.119.253.238"
+                }
+            ]
+        },
+        {
+            "Name": "gstest.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "infraplex.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "installer.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "boleng.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "evotel.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "linklayer.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "maboneng.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "magnoliatreefibre.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "metrowatt.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "mockfno.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "netninenine.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "netstream.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "openfibre.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "ptzambia.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "risetelecoms.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "skyfi.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "walix.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "zoomfibre.installer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "ip-pools.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "isp-interface.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "isp-interface.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "isp-proxy-service.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "isp-proxy-service.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "isp.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "katiah.aex.co.za.",
+            "Type": "A",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "lanseria.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "linklayer.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "linklayer.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "_7bca98ba2b83d89d21c313d39a1050d9.stage.api.load-balancer.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "_06d66e1b67b2a0850d5287b023296bc6.wggjkglgrm.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "maboneng.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "magnoliatreefibre.aex.co.za.",
+            "Type": "A",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "mail.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "mail.reflex.co.za."
+                }
+            ]
+        },
+        {
+            "Name": "meshtelecom.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "metrofibre.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "metrowatt.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "metrowatt.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "client.metrowatt.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "mfibre.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "mfibre.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "mockfno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "mockfno.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "apitest.mockfno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "dbredux.mockfno.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "monitoring.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.240.244"
+                }
+            ]
+        },
+        {
+            "Name": "mpf.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "mtn.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "netninenine.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "app.netninenine.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "app.netninenine.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "netstream.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "netstream.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "nstest.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "openfibre.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "ops-dashboard.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "payment-service.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "payment-service.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "prepaid.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "154.119.253.238"
+                }
+            ]
+        },
+        {
+            "Name": "prtg-monitoring.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "10.69.10.95"
+                }
+            ]
+        },
+        {
+            "Name": "ptzambia.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "ptzambia.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "purchase-service.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "purchase-service.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "net99-jhb.radius.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "154.119.253.238"
+                }
+            ]
+        },
+        {
+            "Name": "vumatel-ct.radius.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "k8s-external-prod-1-1480501431.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "vumatel-jhb.radius.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "k8s-external-prod-1-1480501431.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "vumatel-kzn.radius.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "k8s-external-prod-1-1480501431.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "reflex.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "client.reflex.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "risetelecoms.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "risetelecoms.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "search.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "search.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "security.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "security.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "skyfi.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "skyfi.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "speedtests.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "stats.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.144"
+                }
+            ]
+        },
+        {
+            "Name": "stats.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "status.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "154.119.253.238"
+                }
+            ]
+        },
+        {
+            "Name": "status.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "preprod.status.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "support-interface.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "support-interface.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        },
+        {
+            "Name": "dotnet-toolbox.tech-docs.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "ngx-toolbox.tech-docs.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "triage.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "acs.stage.ui.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "upsource.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "vumatel.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "154.119.253.238"
+                }
+            ]
+        },
+        {
+            "Name": "aerial-shop.vumatel.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "154.119.253.238"
+                }
+            ]
+        },
+        {
+            "Name": "api.client-prepaid.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "vumatel-prod-svc-415584689.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_806f47cc45b37c9ff9d1112f2004b5cf.api.client-prepaid.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_69edec21fb62750d109134702dad6c64.wmmlzlpmyg.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "fno.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "vumatel-prod-svc-415584689.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_c1c5f8badec8f14f272f9255f410b7f5.fno.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_a4310e5ca59ca4a45d223c6db682dbee.snfqtctrdh.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "internal.vumatel.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "_1f7869ae96696848c0e4cfb1b59b3613.internal.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_4cad2a8524442fcdf06e27bec2b1523c.snfqtctrdh.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "notification.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "vumatel-prod-svc-415584689.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_3c5cd233376e27587715f4cb83af0fdc.notification.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_8541c17fcf612dea279df1bd803ef08a.snfqtctrdh.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "portal.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "vumatel-prod-svc-415584689.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_ad51b023682c5b669ba1e50b05fbd141.portal.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_ed0720cb899a7c181de1c4d744716038.snfqtctrdh.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "preprod-fno.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "dev-svc-preprod-1128080515.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_d1f1c8d82b4448c41ab31925da42e78c.preprod-fno.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_276b8adb5bacce9408bd78a4b23ee6ff.mybbdzzyvz.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "sp.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "vumatel-prod-svc-415584689.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_cc38918269865ef840b0197afd7f2b7e.sp.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_0f9b5c890e204a8623f81c1d96d6053d.qwknvqrlct.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "speed.vumatel.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "154.119.253.234"
+                }
+            ]
+        },
+        {
+            "Name": "status.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "vumatel-prod-svc-415584689.af-south-1.elb.amazonaws.com"
+                }
+            ]
+        },
+        {
+            "Name": "_2d2fa0a45cf1f31b9b2ae271d701b3ce.status.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 60,
+            "ResourceRecords": [
+                {
+                    "Value": "_9e539344f78ddf7d3efd168cf4ed65e1.rdvkfhcmrm.acm-validations.aws."
+                }
+            ]
+        },
+        {
+            "Name": "work-orders.vumatel.aex.co.za.",
+            "Type": "CNAME",
+            "TTL": 300,
+            "ResourceRecords": [
+                {
+                    "Value": "work-orders.vumatel.aex.systems"
+                }
+            ]
+        },
+        {
+            "Name": "walix.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "workflowserver.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.17"
+                }
+            ]
+        },
+        {
+            "Name": "www.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "154.72.6.221"
+                }
+            ]
+        },
+        {
+            "Name": "zoomfibre.aex.co.za.",
+            "Type": "A",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "41.79.241.26"
+                }
+            ]
+        },
+        {
+            "Name": "zoomfibre.aex.co.za.",
+            "Type": "NS",
+            "TTL": 3600,
+            "ResourceRecords": [
+                {
+                    "Value": "ns-40.awsdns-05.com"
+                },
+                {
+                    "Value": "ns-808.awsdns-37.net"
+                },
+                {
+                    "Value": "ns-1617.awsdns-10.co.uk"
+                },
+                {
+                    "Value": "ns-1324.awsdns-37.org"
+                }
+            ]
+        }
+    ]
+}

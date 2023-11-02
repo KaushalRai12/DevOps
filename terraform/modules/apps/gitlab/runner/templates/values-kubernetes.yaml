@@ -1,0 +1,70 @@
+gitlabUrl: https://${gitlab_url}
+runnerRegistrationToken: ${registration_token}
+fullnameOverride: ${full_name}
+concurrent: 20
+checkInterval: 15
+logLevel: info
+replicas: 2
+tolerations:
+- key: node.kubernetes.io/disk-pressure
+  operator: Exists
+  effect: NoExecute
+
+runners:
+  namespace: aex-devops
+  privileged: true
+  locked: false
+  tags: ${runner_tag}
+  name: Kubernetes
+  #secret: gitlab-runner-k8s
+  config: |
+    [[runners]]
+      [runners.kubernetes]
+      image = "ubuntu:18.04"
+      privileged = true
+      cpu_request = "${cpu_request}"
+      cpu_limit = "4"
+      memory_limit = "8Gi"
+      memory_request = "${memory_request}"
+      service_cpu_request = "100m"
+      service_cpu_limit = "1"
+      service_memory_request = "200Mi"
+      service_memory_limit = "2Gi"
+      pull_policy = "if-not-present"
+        [runners.cache]
+        Type = "s3"
+        Path = "gitlab-runner"
+        Shared = true
+          [runners.cache.s3]
+            ServerAddress = "s3.amazonaws.com"
+            Insecure = false
+            BucketName = "${s3_bucket}"
+            BucketLocation = "${s3_region}"
+            AccessKey = "${cache_key}"
+            SecretKey = "${cache_secret}"
+        [runners.kubernetes.node_selector]
+        "aex/ci" = "true"
+  cache:
+    secretName: gitlab-s3
+  env:
+    DOCKER_HOST: "tcp://localhost:2375"
+    DOCKER_TLS_CERTDIR: ""
+
+rbac:
+  create: true
+
+unregisterRunners: true
+
+hostAliases:
+%{ for ip, name in hosts }
+# Allow local connection to gitlab
+- ip: ${ip}
+  hostnames:
+  - ${name}
+%{ endfor ~}
+
+nodeSelector:
+  aex/devops: "true"
+  %{ if requires_stable_nodes }
+  aex/stable: "true"
+  %{ endif }

@@ -1,0 +1,14 @@
+config:
+  gitlab:
+    url: https://${gitlab_url}
+    token: M4oKhHpykuxURopgxx9X
+  wildcards:
+  - {}
+
+serviceMonitor:
+  enabled: true
+
+service:
+  type: NodePort
+  port: 80
+  nodePort: 31705

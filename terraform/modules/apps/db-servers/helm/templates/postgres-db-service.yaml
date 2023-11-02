@@ -1,0 +1,18 @@
+{{- if .Values.deployMainServer }}
+{{- $deployName := printf "%s-postgres-13" .Chart.Name }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $deployName }}
+spec:
+  ports:
+  - protocol: TCP
+    port: 5432
+    targetPort: 5432
+    {{- if not .Values.isCloudDeploy }}
+    nodePort: {{ .Values.postgres.nodePort }}
+    {{- end }}
+  type: {{ .Values.isCloudDeploy | ternary "ClusterIP" "NodePort" }}
+  selector:
+    app: {{ $deployName }}
+{{- end }}

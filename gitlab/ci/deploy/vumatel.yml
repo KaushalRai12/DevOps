@@ -1,0 +1,5 @@
+include:
+- '/////gitlab/ci/deploy/common.yml'
+
+vumatel-prod-deploy:
+  extends: .vumatel-prod-deploy

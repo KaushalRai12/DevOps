@@ -1,0 +1,44 @@
+# this docker compose file is here for documentation only - the one with secrets is on the active server
+version: '3'
+
+services:
+  freeradius:
+    image: gitlab.automationexchange.co.za:4567/fnms/radius-2/freeradius-vumatel:3.0.21
+    container_name: freeradius-vumatel
+    restart: always
+    command: ""
+    environment:
+    - SQL_USERNAME=mitchells_radius
+    - SQL_PASSWORD=OLI4VD6E.ee4TECuI-
+    - LOCAL_CLIENT_SECRET={SECRET GOES HERE}
+    - AEX_CLIENT_SECRET={SECRET GOES HERE}
+    - VUMATEL_CLIENT_SECRET={SECRET GOES HERE}
+    - TZ=Africa/Johannesburg
+    - AUTH_LOG=no
+    - REPLY_LOG=no
+    - PRE_PROXY_LOG=no
+    - POST_PROXY_LOG=no
+    - DETAIL_LOG=no
+    volumes:
+    - ./logs:/var/log/freeradius
+    networks:
+    - vumatel-radius
+
+  nginx:
+    image: gitlab.automationexchange.co.za:4567/fnms/radius-2/freeradius-vumatel-load-balancer:1.19.8
+    container_name: freeradius-vumatel-load-balancer
+    restart: always
+    depends_on:
+    - freeradius
+    ports:
+    - 1812:1812/udp
+    - 1813:1813/udp
+    volumes:
+    - ./logs/nginx:/var/log/nginx
+    networks:
+    - vumatel-radius
+    - default
+
+networks:
+  vumatel-radius:
+    external: true

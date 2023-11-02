@@ -1,0 +1,71 @@
+{{- $deployName := printf "freeradius-%s" .Values.instanceName }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $deployName }}
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: {{ $deployName }}
+        uuid: {{ .Values.uuid | default uuidv4 | quote }}
+    spec:
+      containers:
+      - name: service
+        image: "gitlab.automationexchange.co.za:4567/containers/vumatel-radius:latest"
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 1812
+        - containerPort: 1813
+        envFrom:
+        - configMapRef:
+            name: freeradius-{{ .Values.instanceName }}
+        env:
+        - name: DATABASE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: vumatel-radius
+              key: db-password
+        - name: LOCAL_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: vumatel-radius
+              key: default-bras-secret
+        - name: AEX_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: vumatel-radius
+              key: default-bras-secret
+        - name: VUMATEL_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: vumatel-radius
+              key: default-bras-secret
+        args: []  # Add "-X" arg here to enable verbose logging
+        resources:
+          requests:
+            cpu: 1000m
+            memory: 1Gi
+            ephemeral-storage: 5Gi
+          limits:
+            cpu: 2000m
+            memory: 4Gi
+
+      nodeSelector:
+        aex/component: app
+
+      affinity:
+        nodeAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 1
+            preference:
+              matchExpressions:
+              - key: aex/has-native
+                operator: DoesNotExist
+
+      imagePullSecrets:
+      - name: gitlab-docker-registry
+  selector:
+    matchLabels:
+      app: {{ $deployName }}

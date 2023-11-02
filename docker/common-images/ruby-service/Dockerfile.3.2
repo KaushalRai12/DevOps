@@ -1,0 +1,10 @@
+# docker build -t gitlab.vumaex.net:4567/internal/devops/ruby-service:3.2 -f Dockerfile.3.2 .
+# docker push gitlab.vumaex.net:4567/internal/devops/ruby-service:3.2
+FROM ruby:3.2.2-alpine3.18
+LABEL maintainer="Automation Exchange"
+
+RUN apk add --update \
+  bind-tools build-base freetds freetds-dev tzdata git
+
+RUN rm -rf /var/cache/apk/*
+RUN gem install bundler

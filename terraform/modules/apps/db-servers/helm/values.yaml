@@ -1,0 +1,9 @@
+isCloudDeploy: false
+postgres:
+  nodePort: 31745
+  backups:
+postgresUnitTests:
+  nodePort: 31746
+deployUnitTestServer: true
+deployMainServer: true
+

@@ -1,0 +1,339 @@
+[
+  {
+    "id": "pangea_get_vr_order_success",
+    "httpRequest": {
+      "path": "/orders/order/",
+      "queryStringParameters": {
+        "orderreference": [
+          "VR-774510-.{5}"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "count": 1,
+          "next": null,
+          "previous": null,
+          "results": [
+            {
+              "id": 584808,
+              "backend_references": [],
+              "status_changes": [],
+              "qborder": {
+                "order": 584808,
+                "installation_activation_confirmed": null,
+                "confirmed_activation_date": "2023-06-06T18:03:31+02:00",
+                "scheduling_link": null,
+                "latest_status": "Awaiting ISP Application",
+                "latest_appointment_date": null,
+                "scheduling_attempts": null,
+                "date_modified": null,
+                "date_captured": "2023-06-06T17:21:38.673208+02:00",
+                "schedulable": false,
+                "scheduable_comment": null
+              },
+              "webhook": [],
+              "statuses": [],
+              "audit_trail": [],
+              "acceptance_history": [],
+              "payment": [],
+              "provisioning_work_order": {
+                "order": 584808,
+                "updated": false,
+                "update_attempts": 1484,
+                "date_modified": "2023-08-07T15:00:19.942733+02:00",
+                "comments": "Provisioning ID missing.",
+                "status": "",
+                "awaiting_activation_date_modified": null,
+                "start_provisioning_date": null
+              },
+              "termination_reason": null,
+              "can_update_location": false,
+              "first_name": "test",
+              "last_name": "test",
+              "cell_number": "0824242424",
+              "email": "test@test.com",
+              "identity_number": "9101163994087",
+              "za_resident": true,
+              "type": "Residential",
+              "business_name": null,
+              "vatnumber": null,
+              "businessregistrationnumber": null,
+              "alternativecontactname": null,
+              "alternatecontactnumber": null,
+              "alternatecontactemail": null,
+              "promocode": null,
+              "mduname": "Aggregation Zones MDU name testing",
+              "mduunitno": null,
+              "mdurid": "a410D000000lIfAQAU",
+              "street_number": "400",
+              "street_name": "Stand No.",
+              "suburb": null,
+              "fibrehoodonorder": "Mdantsane-R",
+              "city": "Mdantsane",
+              "installationstreetaddress": "400 Stand No.,Mdantsane-R,Mdantsane",
+              "postal_code": "5219",
+              "lat": "-32.95078932000000000000",
+              "long": "27.70544150000000000000",
+              "province": "Eastern Cape",
+              "country": "South Africa",
+              "location_id": "a410D000000lIfAQAU",
+              "orderchannel": "isp:portal",
+              "getupdates": true,
+              "networkname": null,
+              "networktype": "GPON",
+              "orderreference": "VR-060623-633345",
+              "objectgroupid": null,
+              "objectgroupname": null,
+              "relatedpremiseid_ifapplicable": null,
+              "serviceproviderselected": null,
+              "serviceproviderid": "D74FD2A5-3618-4AFD-8E72-F2E632FD792C",
+              "serviceselected": "20/10 Base Prepaid 28 Day Service",
+              "ispserviceid": "cef4b736-22e2-4672-9746-0f8883279be1",
+              "ordercomplete": false,
+              "datecreated": "2023-06-06T17:17:49.249642+02:00",
+              "datemodified": "2023-06-06T17:17:49.249684+02:00",
+              "recordid": "319087",
+              "recordowner": "mweb.admin@vumatel.co.za",
+              "recordowner_org_id": null,
+              "lastmodifiedby": null,
+              "processed": false,
+              "transactionref": "60fb062247ecfd16cde71a3c618fd482c1e7c93c84327e9c7d315110ac172f4f",
+              "ordertype": null,
+              "orderfulfilmenttype": "activation",
+              "order_already_placed": false,
+              "order_comments": null,
+              "url": null,
+              "location_reference": "4432027514",
+              "vuma_region": null,
+              "appointment_date": null,
+              "isp_order_reference": "testvr",
+              "organization_id": 38,
+              "user_id": "212",
+              "estate_name": null,
+              "status": "ORDER_COMPLETE",
+              "qb_latest_status": null,
+              "order_accepted": "PAYMENT_ACCEPTED",
+              "network_identifier": "485754434868A6A9",
+              "missing_premise": null,
+              "effective_date": "2023-06-06",
+              "service_id_for_quickbase": null,
+              "voucher_count": 1,
+              "product_reference": "[BASE-PREPAID-O-20-10]",
+              "product_type": "VR",
+              "payment_id": "8ab09283-af6a-49ac-86f8-42ae78945006",
+              "payment_redirect_url": "https://shop.vumatel.co.za/",
+              "recurring_payment_date": null,
+              "expiry_date": null,
+              "pro_rata_amount": null,
+              "installation_comments": null,
+              "change_type": null,
+              "direction": null,
+              "isp_main_merchant": false,
+              "marketing": false,
+              "consent_toshare_info": false,
+              "accept_vuma_installation": false,
+              "cancellation_date": null,
+              "reseller_id": null
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "pangea_get_vc_order_success",
+    "httpRequest": {
+      "path": "/orders/order/",
+      "queryStringParameters": {
+        "orderreference": [
+          "VC-050623-.{5}"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "count": 1,
+          "next": null,
+          "previous": null,
+          "results": [
+            {
+              "id": 584808,
+              "backend_references": [],
+              "status_changes": [],
+              "qborder": {
+                "order": 584808,
+                "installation_activation_confirmed": null,
+                "confirmed_activation_date": "2023-06-06T18:03:31+02:00",
+                "scheduling_link": null,
+                "latest_status": "Awaiting ISP Application",
+                "latest_appointment_date": null,
+                "scheduling_attempts": null,
+                "date_modified": null,
+                "date_captured": "2023-06-06T17:21:38.673208+02:00",
+                "schedulable": false,
+                "scheduable_comment": null
+              },
+              "webhook": [],
+              "statuses": [],
+              "audit_trail": [],
+              "acceptance_history": [],
+              "payment": [],
+              "provisioning_work_order": {
+                "order": 584808,
+                "updated": false,
+                "update_attempts": 1484,
+                "date_modified": "2023-08-07T15:00:19.942733+02:00",
+                "comments": "Provisioning ID missing.",
+                "status": "",
+                "awaiting_activation_date_modified": null,
+                "start_provisioning_date": null
+              },
+              "termination_reason": null,
+              "can_update_location": true,
+              "first_name": "Test",
+              "last_name": "tester",
+              "cell_number": "0754545454",
+              "email": "test@test.com",
+              "identity_number": "9101163540088",
+              "za_resident": true,
+              "type": "Residential",
+              "business_name": null,
+              "vatnumber": null,
+              "businessregistrationnumber": null,
+              "alternativecontactname": null,
+              "alternatecontactnumber": null,
+              "alternatecontactemail": null,
+              "promocode": null,
+              "mduname": "Olympus Range Phase 1",
+              "mduunitno": "Unit 22",
+              "mdurid": "a410D000000n2ULQAY",
+              "street_number": "0",
+              "street_name": "Bloemendal Street",
+              "suburb": null,
+              "fibrehoodonorder": "Shellyvale",
+              "city": "Bloemfontein",
+              "installationstreetaddress": "0 Bloemendal Street,Olympus Range Phase 1,Unit 22,Shellyvale,Bloemfontein",
+              "postal_code": "9301",
+              "lat": "-29.06705900000000000000",
+              "long": "26.20575600000000000000",
+              "province": "Free state",
+              "country": "South Africa",
+              "location_id": "a410D000000n2ULQAY",
+              "orderchannel": "isp:portal",
+              "getupdates": true,
+              "networkname": null,
+              "networktype": "GPON",
+              "orderreference": "VC-050623-76967",
+              "objectgroupid": null,
+              "objectgroupname": null,
+              "relatedpremiseid_ifapplicable": null,
+              "serviceproviderselected": null,
+              "serviceproviderid": "1336B0EE-4297-4D33-A401-EA30FC0922A1",
+              "serviceselected": "100/100 Base Home Fibre",
+              "ispserviceid": "f59bbf0a-dde1-45f7-8b10-dd333788f75c",
+              "ordercomplete": false,
+              "datecreated": "2023-06-05T18:22:10.793294+02:00",
+              "datemodified": "2023-06-05T18:22:10.793318+02:00",
+              "recordid": "319082",
+              "recordowner": "webafrica.admin@vumatel.co.za",
+              "recordowner_org_id": null,
+              "lastmodifiedby": null,
+              "processed": false,
+              "transactionref": "a667d735838f5ee70de06496f7b61b2fac05247731ec3f64c303ebdf3cdc28ef",
+              "ordertype": null,
+              "orderfulfilmenttype": "activation",
+              "order_already_placed": false,
+              "order_comments": null,
+              "url": null,
+              "location_reference": "4962876214",
+              "vuma_region": null,
+              "appointment_date": null,
+              "isp_order_reference": "testvcgpon",
+              "organization_id": 60,
+              "user_id": "213",
+              "estate_name": null,
+              "status": "FAILED",
+              "qb_latest_status": null,
+              "order_accepted": "ISP_ACCEPTED",
+              "network_identifier": "485754436729EA91",
+              "missing_premise": null,
+              "effective_date": "2023-06-05",
+              "service_id_for_quickbase": null,
+              "voucher_count": null,
+              "product_reference": "[BASE-FTTH-100-100]",
+              "product_type": "VC",
+              "payment_id": null,
+              "payment_redirect_url": "http://vumahook.webafrica.co.za:2020/api/default",
+              "recurring_payment_date": null,
+              "expiry_date": null,
+              "pro_rata_amount": null,
+              "installation_comments": null,
+              "change_type": null,
+              "direction": null,
+              "isp_main_merchant": false,
+              "marketing": false,
+              "consent_toshare_info": false,
+              "accept_vuma_installation": false,
+              "cancellation_date": null,
+              "reseller_id": null
+            }
+          ]
+        }
+      }
+    }
+  },
+  {
+    "id": "pangea_get_order_not_found",
+    "httpRequest": {
+      "path": "/orders/order/",
+      "queryStringParameters": {
+        "orderreference": [
+          "VR-060623-6333451"
+        ]
+      },
+      "method": "GET"
+    },
+    "httpResponse": {
+      "statusCode": 200,
+      "headers": {
+        "content-type": [
+          "application/json"
+        ],
+        "x-content-type-options": "nosniff",
+        "vary": "Origin"
+      },
+      "body": {
+        "type": "JSON",
+        "json": {
+          "count": 0,
+          "next": null,
+          "previous": null,
+          "results": []
+        }
+      }
+    }
+  }
+]

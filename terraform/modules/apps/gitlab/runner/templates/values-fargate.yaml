@@ -1,0 +1,56 @@
+gitlabUrl: https://${gitlab_url}
+runnerRegistrationToken: ${registration_token}
+fullnameOverride: gitlab-runner-fargate
+concurrent: 20
+checkInterval: 10
+
+runners:
+  namespace: aex-devops
+  ## Run all containers with the privileged flag enabled
+  ## This will allow the docker:stable-dind image to run if you need to run Docker
+  ## commands. Please read the docs before turning this on:
+  ## ref: https://docs.gitlab.com/runner/executors/kubernetes.html#using-docker-dind
+  privileged: true
+  config: |
+    [session_server]
+      session_timeout = 1800
+
+    [[runners]]
+      name = "Fargate"
+      executor = "custom"
+      builds_dir = "/opt/gitlab-runner/builds"
+      cache_dir = "/opt/gitlab-runner/cache"
+      [runners.custom]
+        config_exec = "/opt/gitlab-runner/fargate"
+        config_args = ["--config", "/etc/gitlab-runner/fargate.toml", "custom", "config"]
+        prepare_exec = "/opt/gitlab-runner/fargate"
+        prepare_args = ["--config", "/etc/gitlab-runner/fargate.toml", "custom", "prepare"]
+        run_exec = "/opt/gitlab-runner/fargate"
+        run_args = ["--config", "/etc/gitlab-runner/fargate.toml", "custom", "run"]
+        cleanup_exec = "/opt/gitlab-runner/fargate"
+        cleanup_args = ["--config", "/etc/gitlab-runner/fargate.toml", "custom", "cleanup"]
+        [runners.cache]
+        Type = "s3"
+        Path = "gitlab-runner"
+        Shared = true
+          [runners.cache.s3]
+            ServerAddress = "s3.amazonaws.com"
+            Insecure = false
+            BucketName = "${s3_bucket}"
+            BucketLocation = "${s3_region}"
+  cache:
+    secretName: gitlab-s3
+  env:
+    DOCKER_HOST: "tcp://localhost:2375"
+    DOCKER_TLS_CERTDIR: ""
+
+rbac:
+  create: true
+
+unregisterRunners: true
+
+hostAliases:
+# Allow local connection to gitlab
+- ip: 13.246.112.128
+  hostnames:
+  - gitlab.vumaex.net

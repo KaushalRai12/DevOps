@@ -1,0 +1,22 @@
+isExternal:
+vpcId:
+name:
+routes:
+certificateArn:
+listenPorts:
+attributes:
+sslPolicy: ELBSecurityPolicy-FS-1-2-Res-2020-10
+userPool:
+  arn:
+  clientId:
+  domain:
+auth:
+  type:
+oidc:
+  issuer:
+  authEndpoint:
+  tokenEndpoint:
+  infoEndpoint:
+  clientId:
+  clientSecret:
+isDualStack:

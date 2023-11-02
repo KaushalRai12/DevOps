@@ -1,0 +1,200 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: cluster-admin
+  namespace: aex-devops
+
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: jrgns
+  namespace: aex-devops
+
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: alexv
+  namespace: aex-devops
+
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: aex-monitor
+  namespace: aex-devops
+
+---
+
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: gilbertg{{ .Values.user.clusterSuffix }}
+  namespace: aex-devops
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: aex-container-hackers
+rules:
+- apiGroups: [ "" ]
+  resources: [ "pods/exec" ]
+  verbs: [ "create" ]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: aex-developers
+rules:
+- apiGroups: ["", "apps"]
+  resources: ["pods", "replicasets", "services", "deployments", "configmaps", "namespaces", "replicasets", "volumeattachments", "statefulsets", "cronjobs", "namespaces"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["", "apps"]
+  resources: ["secrets"]
+  verbs: ["list"]
+- apiGroups: ["", "apps"]
+  resources: ["pods", "replicasets"]
+  verbs: ["delete", "update", "create"]
+- apiGroups: ["", "batch"]
+  resources: ["cronjobs"]
+  verbs: ["get", "list", "watch"]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: aex-monitor
+rules:
+- apiGroups: [ "*" ]
+  resources: [ "*" ]
+  verbs: [ "get", "list", "watch" ]
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: aex-cluster-admin-users
+  labels:
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    meta.helm.sh/release-name: root
+    meta.helm.sh/release-namespace: default
+subjects:
+- kind: User
+  name: gilbertg{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+- kind: ServiceAccount
+  name: cluster-admin
+  namespace: aex-devops
+- kind: User
+  name: aliciah{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+- kind: ServiceAccount
+  name: gilbertg{{ .Values.user.clusterSuffix }}
+  namespace: aex-devops
+- kind: ServiceAccount
+  name: jrgns
+  namespace: aex-devops
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: aex-view-users
+subjects:
+- kind: User
+  name: ronnym{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: view
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: aex-developers
+subjects:
+- kind: User
+  name: jck{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+- kind: User
+  name: alexv{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+- kind: User
+  name: zeenw{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+- kind: User
+  name: alfredb{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+- kind: User
+  name: leong{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+- kind: User
+  name: martinh{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+- kind: ServiceAccount
+  name: alexv
+  namespace: aex-devops
+roleRef:
+  kind: ClusterRole
+  name: aex-developers
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: aex-monitors
+subjects:
+- kind: User
+  name: grafana{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+- kind: ServiceAccount
+  name: aex-monitor
+  namespace: aex-devops
+roleRef:
+  kind: ClusterRole
+  name: aex-monitor
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+#  Ability to shell into containers - should net be given out easily
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: aex-container-hackers
+subjects:
+- kind: User
+  name: jck{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+- kind: User
+  name: leong{{ .Values.user.clusterSuffix }}
+  apiGroup: rbac.authorization.k8s.io
+- kind: ServiceAccount
+  name: alexv
+  namespace: aex-devops
+roleRef:
+  kind: ClusterRole
+  name: aex-container-hackers
+  apiGroup: rbac.authorization.k8s.io
+

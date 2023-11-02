@@ -1,0 +1,11 @@
+volumeClaimTemplate:
+  accessModes:
+  - ReadWriteOnce
+  resources:
+    requests:
+      storage: 200Gi
+
+resources:
+  requests:
+    cpu: 2
+    memory: 4Gi

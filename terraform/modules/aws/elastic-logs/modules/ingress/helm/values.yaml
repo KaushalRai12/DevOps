@@ -1,0 +1,9 @@
+certificateArn:
+loadBalancerName:
+domainName:
+name:
+userPool:
+  arn:
+  clientId:
+  domain:
+isInternal: false

@@ -1,0 +1,13 @@
+fullnameOverride: ${full_name}
+opensearchHosts: http://${opensearch_name}:9200
+
+resources:
+  requests:
+    cpu: 0.1
+    memory: 512Mi
+  limits:
+    cpu: 1
+    memory: 2Gi
+
+nodeSelector:
+  aex/devops: "true"

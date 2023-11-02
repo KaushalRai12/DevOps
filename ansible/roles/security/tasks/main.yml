@@ -1,0 +1,45 @@
+---
+- name: Disable UFW
+  ufw: state=disabled
+
+- name: Firewall Rule - Allow SSH
+  ufw: rule=allow port=22 proto=tcp
+
+- stat: path=/home/{{ ansible_ssh_user }}/.ssh/authorized_keys
+  register: authorized_keys_exist
+
+- name: Disallow password authentication
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^PasswordAuthentication" line="PasswordAuthentication no" state=present
+  when: authorized_keys_exist.stat.exists
+  notify: Restart ssh
+
+- name: Disallow root SSH access
+  lineinfile: dest=/etc/ssh/sshd_config regexp="^PermitRootLogin" line="PermitRootLogin no" state=present
+  notify: Restart ssh
+
+# General Security
+- name: Install fail2ban
+  apt: pkg=fail2ban state=present
+
+# sudo Security
+# - name: Add main user to sudoers
+#   lineinfile: 'dest=/etc/sudoers regexp="{{ ansible_ssh_user }} ALL" line="{{ ansible_ssh_user }} ALL=(ALL:ALL) ALL" state=present'
+
+# - name: Remove sudo group rights
+#   lineinfile: dest=/etc/sudoers regexp="^%admin" state=absent
+
+# Hardening
+- name: Set default login umask
+  lineinfile: dest=/etc/login.defs line="UMASK           027" regexp='^UMASK.*' state=present
+
+# - name: Set default rc umask
+#   lineinfile: dest=/etc/init.d/rc line="umask 027" regexp='^umask .*' state=present
+
+- name: Disable usb storage drivers
+  lineinfile: dest=/etc/modprobe.d/blacklist.conf line="blacklist usb-storage" state=present
+
+- name: Disable firewire storage drivers (ohci)
+  lineinfile: dest=/etc/modprobe.d/blacklist-firewire.conf line="blacklist firewire-ohci" regexp='^#?blacklist firewire-ohci$' state=present
+
+- name: Disable firewire storage drivers (sbp2)
+  lineinfile: dest=/etc/modprobe.d/blacklist-firewire.conf line="blacklist firewire-sbp2" regexp='^#?blacklist firewire-sbp2$' state=present

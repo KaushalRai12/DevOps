@@ -1,0 +1,36 @@
+deploy:
+  extends:
+  - .npm-registry
+  - .env-prod
+  stage: deploy
+  image: node:14
+  tags:
+  - aws-k8s
+  cache:
+    paths:
+    - node_modules/
+  artifacts:
+    paths:
+    - docs
+  script:
+  # Generate docs
+  - npm run docs
+  # Build and deploy library
+  - npm run build
+  - cd dist/ngx-toolbox
+  - npm publish
+  - cd ../..
+
+build_docs:
+  extends:
+  - .docker-build-template
+  - .env-prod
+  stage: build_docs
+
+deploy_docs:
+  extends:
+  - .helm-deploy-template
+  - .env-prod
+  stage: deploy_docs
+  script:
+  - helm upgrade $APP_NAME ./docs/config/helm --install --kube-context vumatel-operations --namespace aex-devops --set imageTag=latest

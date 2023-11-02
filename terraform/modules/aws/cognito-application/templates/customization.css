@@ -1,0 +1,7 @@
+.submitButton-customizable {
+	background-color: #EF5B2D;
+}
+
+.submitButton-customizable:hover {
+	background-color: black;
+}

@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: freeradius-{{ .Values.instanceName }}
+spec:
+  externalTrafficPolicy: Cluster
+  ports:
+  - name: auth
+    protocol: UDP
+    port: 1812
+    targetPort: 1812
+    nodePort: {{ .Values.freeRadius.authPort }}
+  - name: acct
+    protocol: UDP
+    port: 1813
+    targetPort: 1813
+    nodePort: {{ .Values.freeRadius.acctPort }}
+  type: NodePort
+  selector:
+    app: freeradius-{{ .Values.instanceName }}

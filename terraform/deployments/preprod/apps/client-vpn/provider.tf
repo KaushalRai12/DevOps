@@ -1,0 +1,33 @@
+terraform {
+	required_providers {
+		aws = {
+			source = "hashicorp/aws"
+			version = "~> 4.0"
+		}
+		helm = {
+			source = "hashicorp/helm"
+			version = "~> 2.0"
+		}
+	}
+}
+
+provider aws {
+	region = "af-south-1"
+	profile = "vumatel-preprod"
+}
+
+provider aws {
+	alias = "preprod"
+	profile = module.constants_cluster.aws_profile
+	region = "af-south-1"
+}
+
+provider helm {
+	kubernetes {
+		config_context = module.constants_cluster.kube_context
+	}
+}
+
+provider kubernetes {
+	config_context = module.constants_cluster.kube_context
+}

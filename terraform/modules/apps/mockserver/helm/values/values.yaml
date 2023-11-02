@@ -1,0 +1,30 @@
+nameOverride: ${nameOverride}
+
+replicaCount: 1
+
+image:
+  repository: ${repository}
+  pullPolicy: IfNotPresent
+  tag: ${image_tag}
+
+containerPort: 1080
+
+nodeSelector:
+  aex/integration: "true"
+
+imagePullSecrets:
+  - name: gitlab-docker-registry
+
+resources:
+  limits:
+    cpu: 128m
+    memory: 256Mi
+  requests:
+    cpu: 128m
+    memory: 256Mi
+
+env:
+  ENVIRONMENT: ${environment}
+  MOCKSERVER_WATCH_INITIALIZATION_JSON: "true"
+  MOCKSERVER_PROPERTY_FILE: "/config/mockserver.properties"
+  MOCKSERVER_INITIALIZATION_JSON_PATH: "/config/*.json"

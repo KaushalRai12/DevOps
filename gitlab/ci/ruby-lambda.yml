@@ -1,0 +1,4 @@
+include:
+- '/gitlab/ci/ruby-test.yml'
+- '/gitlab/ci/ruby-sonar.yml'
+- '/gitlab/ci/env-extensions.yml'

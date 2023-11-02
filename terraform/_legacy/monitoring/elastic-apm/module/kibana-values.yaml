@@ -1,0 +1,21 @@
+fullnameOverride: kibana-metrics
+elasticsearchHosts: http://elastic-metrics:9200
+service:
+  type: NodePort
+  nodePort: 31566
+
+resources:
+  requests:
+    cpu: 0.1
+    memory: 512Mi
+  limits:
+    cpu: 1
+    memory: 2Gi
+
+nodeAffinity:
+  preferredDuringSchedulingIgnoredDuringExecution:
+  - weight: 1
+    preference:
+      matchExpressions:
+      - key: aex/has-native
+        operator: DoesNotExist

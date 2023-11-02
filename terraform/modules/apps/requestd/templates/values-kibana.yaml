@@ -1,0 +1,4 @@
+fullnameOverride: kibana-requestd${suffix}
+service:
+  type: ClusterIP
+  port: 80

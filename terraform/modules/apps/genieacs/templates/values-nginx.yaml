@@ -1,0 +1,48 @@
+fullnameOverride: ${full_name}
+
+image:
+  repository: gitlab.vumaex.net:4567/internal/devops/genieacs-nginx
+  pullPolicy: IfNotPresent
+  tag: "1.0.4"
+
+autoscaling:
+  enabled: false
+
+replicaCount: 1
+podAnnotations: {}
+imagePullSecrets: 
+- name: gitlab-docker-registry
+
+podSecurityContext: {}
+securityContext: {}
+
+service_http:
+  type: ClusterIP
+  port: 80
+service_cwmp:
+  type: ClusterIP
+  port: 7547
+service_nbi:
+  type: ClusterIP
+  port: 7557
+service_fs:
+  type: ClusterIP
+  port: 7567
+service_acs:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+
+resources: # Modify according to your size
+  requests:
+    cpu: 200m
+    memory: 256Mi
+
+serviceAccount:
+  create: false
+  name: ""
+
+nodeSelector:
+  aex/app: "true"

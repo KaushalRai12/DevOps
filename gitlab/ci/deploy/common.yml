@@ -1,0 +1,27 @@
+# ==============  Dev
+.dev-stage-deploy:
+  extends: .helm-deploy-template-stage
+  script:
+  - helm upgrade $APP_NAME-$DEPLOY_ENV ./helm --wait --wait-for-jobs -f helm/values-development-stage.yaml --install --kube-context vumatel-preprod-dev --namespace aex-$DEPLOY_ENV --set env=$DEPLOY_ENV,imagePullPolicy=Always
+
+.dev-preprod-deploy:
+  extends: .helm-deploy-template-preprod
+  script:
+  - helm upgrade $APP_NAME-$DEPLOY_ENV ./helm --wait --wait-for-jobs -f helm/values-development-preprod.yaml --install --kube-context vumatel-preprod-dev --namespace aex-$DEPLOY_ENV --set env=$DEPLOY_ENV,imageTag=$CI_COMMIT_TAG,imagePullPolicy=IfNotPresent,uuid=7e70ead6-5df5-49cc-9d84-5894ddc54e93
+
+.dev-uat-deploy:
+  extends: .helm-deploy-template-uat
+  script:
+  - helm upgrade $APP_NAME-$DEPLOY_ENV ./helm --wait --wait-for-jobs -f helm/values-development-uat.yaml --install --kube-context vumatel-preprod-dev --namespace aex-$DEPLOY_ENV --set env=$DEPLOY_ENV,imageTag=$CI_COMMIT_TAG,imagePullPolicy=IfNotPresent
+
+# ==============  Operations
+.ops-deploy:
+  extends: .helm-deploy-template-ops
+  script:
+  - helm upgrade $APP_NAME-$DEPLOY_ENV ./helm --wait --wait-for-jobs -f helm/values-operations.yaml --install --kube-context vumatel-operations --namespace aex-devops --set imageTag=$CI_COMMIT_TAG,imagePullPolicy=IfNotPresent
+
+# ==============  Vumatel
+.vumatel-prod-deploy:
+  extends: .helm-deploy-template-prod
+  script:
+  - helm upgrade $APP_NAME-$DEPLOY_ENV ./helm --wait --wait-for-jobs -f helm/values-vumatel-prod.yaml --install --kube-context vumatel-prod --namespace aex-$DEPLOY_ENV --set env=$DEPLOY_ENV,imageTag=$CI_COMMIT_TAG,imagePullPolicy=IfNotPresent,uuid=7e70ead6-5df5-49cc-9d84-5894ddc54e93

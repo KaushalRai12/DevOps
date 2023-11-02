@@ -1,0 +1,10 @@
+# docker build -f Dockerfile.nginx -t gitlab.vumaex.net:4567/internal/devops/genieacs-nginx:1.0.3 .
+# docker push gitlab.vumaex.net:4567/internal/devops/genieacs-nginx:1.0.3
+FROM nginx:1-alpine
+LABEL maintainer="VumaAEx"
+
+RUN apk update && apk add apache2-utils
+RUN rm /etc/nginx/conf.d/default.conf
+COPY nginx /etc/nginx
+
+EXPOSE 80 7547 7557 7567

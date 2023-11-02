@@ -1,0 +1,74 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: aex:power-user
+rules:
+- apiGroups: ["", "apps"]
+  resources: ["pods", "pods/log", "replicasets", "services", "deployments", "configmaps", "namespaces", "replicasets", "volumeattachments", "statefulsets", "cronjobs", "namespaces"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["", "apps"]
+  resources: ["pods", "replicasets"]
+  verbs: ["delete"]
+- apiGroups: [""]
+  resources: ["pods/exec"]
+  verbs: ["create"]
+- apiGroups: ["", "batch"]
+  resources: ["cronjobs"]
+  verbs: ["get", "list", "watch"]
+
+---
+
+{{- range .Values.namespaces }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: aex:power-user
+  namespace: aex-{{ . }}
+subjects:
+- kind: User
+  name: k8s-power-user
+roleRef:
+  kind: ClusterRole
+  name: aex:power-user
+  apiGroup: rbac.authorization.k8s.io
+
+---
+
+{{- end }}
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: aex:developer
+rules:
+- apiGroups: ["", "apps"]
+  resources: ["pods", "replicasets", "services", "deployments", "configmaps", "namespaces", "replicasets", "volumeattachments", "statefulsets", "cronjobs", "namespaces"]
+  verbs: ["get", "list", "watch"]
+- apiGroups: ["", "apps"]
+  resources: ["secrets"]
+  verbs: ["list"]
+- apiGroups: ["", "apps"]
+  resources: ["pods", "replicasets"]
+  verbs: ["delete"]
+- apiGroups: ["", "batch"]
+  resources: ["cronjobs"]
+  verbs: ["get", "list", "watch"]
+
+---
+
+{{- range .Values.namespaces }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: aex:developer
+  namespace: aex-{{ . }}
+subjects:
+- kind: User
+  name: k8s-developer
+roleRef:
+  kind: ClusterRole
+  name: aex:developer
+  apiGroup: rbac.authorization.k8s.io
+---
+
+{{- end }}

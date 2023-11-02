@@ -1,0 +1,8 @@
+apiVersion: v2
+name: free-radius
+type: application
+version: 1.0.1
+appVersion: 1.0.0
+maintainers:
+- name: Automation Exchange
+  url: http://www.automationexchange.co.za/
